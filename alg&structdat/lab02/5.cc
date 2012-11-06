@@ -109,6 +109,8 @@ int main (int argc, char const *argv[])
 	
 	insertElement (20);
 	insertElement (22);
+	
+	/*
 	insertElement (15);
 	insertElement (25);
 	
@@ -129,7 +131,7 @@ int main (int argc, char const *argv[])
 	printList ();
 	
 	insertElement (12);
-	
+	*/
 	printList ();
 	
 	return 0;
