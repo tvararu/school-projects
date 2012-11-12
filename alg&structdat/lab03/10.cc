@@ -53,7 +53,7 @@ int main (int argc, char const *argv[])
 			count++;
 	}
 	
-	if (count > (n / 2) + 1)
+	if (count >= (n / 2) + 1)
 		cout << "Elementul majoritar exista si este " << pickOne << ".\n";
 	else
 		cout << "Nu exista element majoritar.\n";

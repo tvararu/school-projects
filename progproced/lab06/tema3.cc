@@ -1,15 +1,13 @@
 #include <stdio.h>
 
-int **v, n = 0, m = 0;
-
-void resize ()
+void resize (int **&v, int &n, int &m)
 {
-	v = (int**)calloc(n + 1, sizeof(int*));
+	v = (int**)calloc(n, sizeof(int*));
 	for (int i = 0; i < n; i++)
 		v[i] = (int*)calloc(m, sizeof(int));
 }
 
-void normal_print ()
+void normal_print (int **&v, int &n, int &m)
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -19,7 +17,7 @@ void normal_print ()
 	}
 }
 
-void spiral_print ()
+void spiral_print (int **&v, int &n, int &m)
 {
 	int i = 0, j = 0, rightMax = m - 1, downMax = n - 1, leftMax = 0, upMax = 0, printfs = n * m;
 	char direction = 'R';
@@ -68,12 +66,12 @@ void spiral_print ()
 	}
 }
 
-void read ()
+void read (int **&v, int &n, int &m)
 {
 	freopen("fisier.in", "r", stdin);
 	scanf("%d %d", &n, &m);
 	
-	resize();
+	resize(v, n, m);
 	
 	for (int i = 0; i < n; i++)
 		for (int j = 0; j < m; j++)
@@ -84,9 +82,11 @@ void read ()
 
 int main (int argc, char const *argv[])
 {
-	read();
-	// normal_print();
-	spiral_print();
+	int **v, n = 0, m = 0;
+	
+	read(v, n, m);
+	// normal_print(v, n, m);
+	spiral_print(v, n, m);
 	
 	return 0;
 }

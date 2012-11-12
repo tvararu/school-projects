@@ -1,0 +1,44 @@
+Performanta = timp de raspuns: 
+	- t. consumat cu calcule din program - TUCP
+	- t. consumat cu calcule din sistemul de operare - tot TUCP
+	- t. de asteptare la resurse
+	- t. consumat cu alte programe
+	
+Perf = 1 / Texec.
+
+x, y masini Px > Py <=> Tx < Ty
+						Px / Py = n <=> Ty / Tx = n
+
+(Frecventa)
+F = 1 / Perf
+
+|----------------------------|
+| T.UCP = NrC * Dc = NrC / F |
+|----------------------------|
+
+(Nr. Cicluri)
+NrC = NrIExec * CPI
+
+NrIExec = Nr Instructiuni Executate
+CPI = Nr Cicli pe instructiune
+
+T.UCP = NrI * CPI * DC = (NrI * CPI) / F
+
+(Million Instructions per Second)
+MIPS = NrI / (T * 0.6)
+
+Algebra Booleana
+----------------
+Def. - Inseamna un sistem de forma A.B.(B, +, *, -, 0, 1) de tip (2, 2, 1, 0, 0) a.i.
+asoc: (ab)c = a(bc), (a+b)+c = a+(b+c) 	-|
+comut: ab = ba, a+b = b+a				e				-} - latice, in oricare
+absorbtia: a(a + b) = a, a + ab = a			-|
+latice definim relatia de ordine a <= b <=> ab = a
+sau a + b = b
+prop: oricare a, b, exista -	inf(a, b) = a - b
+															sup(a, b) = a + b
+
+
+
+
+
