@@ -1,43 +1,17 @@
-.data
- x: .word 1
- y: .word 2
- z: .word 3
- messageX: .asciiz "X este cel mai mare!\n"
- messageY: .asciiz "Y este cel mai mare!\n"
- messageZ: .asciiz "Z este cel mai mare!\n"
-
-.text
+#  a basic example in mips-assembler: hello world.
+#  tested with xspim-7.0
+   
+	.text
+	.globl main
+	
 main:
-	lw $t0, x
-	lw $t1, y
-	lw $t2, z
+	li       $v0, 4            # call = 4 = print_string
+	la       $a0, hello_string # set $a0 to point to the string
+	syscall                    # print it.
+	li       $v0, 10           # call = 10 = exit
+	syscall                    # done.
 	
-	blt $t0, $t1, x_smaller_than_y
-	j x_greater_than_y
 	
-x_smaller_than_y:
-	blt $t1, $t2, echoZ
-	j echoY
+	.data
 	
-x_greater_than_y:
-	blt $t1, $t2, echoZ
-	j echoX
-
-echoX:
-	la $a0, messageX
-	syscall
-	j end
-	
-echoY:
-	la $a0, messageY
-	syscall
-	j end
-	
-echoZ:
-	la $a0, messageZ
-	syscall
-	j end
-
-end:
-	li $v0, 10
-	syscall
+hello_string:  .asciiz  "Hello World!\n"

@@ -1,103 +1,59 @@
 #include <iostream>
 using namespace std;
+#define MULT 100
 
-struct node
-{
-	int info;
-	node *next;
-	node()
-	{
-		info = 0;
-		next = 0;
-	}
-};
+int top = 0;
 
-bool isEmpty (node *stack)
+void push (const int &a, int *stiva)
 {
-	return !stack->next;
+	stiva[top] = a;
+	top++;
 }
 
-void push (const int &a, node *stack)
+bool isEmpty (int *stiva)
 {
-	node *conductor = stack;
-	while (conductor->next)
-	{
-		conductor = conductor->next;
-	}
-	
-	node *add = new node;
-	add->info = a;
-	
-	conductor->next = add;
+	return !top;
 }
 
-
-void print (node *stack)
+int pop (int *stiva)
 {
-	node *conductor = stack;
-	cout << "Stiva: ";
-	while (conductor->next)
-	{
-		conductor = conductor->next;
-		cout << conductor->info << ' ';
-	}
-	cout << '\n';
+	if (isEmpty(stiva))
+		return -1;
+	
+	return stiva[--top];
 }
 
-int pop (node *stack)
+int peek (int *stiva)
 {
-	if (isEmpty (stack))
-		return 0;
+	if (isEmpty(stiva))
+		return -1;
 	
-	node *conductor = stack, *prev = new node;
-	while (conductor->next)
-	{
-		prev = conductor;
-		conductor = conductor->next;
-	}
-	
-	int info = conductor->info;
-	prev->next = 0;
-	delete conductor;
-	
-	return info;
+	return stiva[top - 1];
 }
 
-int peek (node *stack)
+int search (const int &a, int *stiva)
 {
-	if (isEmpty (stack))
-		return 0;
-	
-	node *conductor = stack, *prev = new node;
-	while (conductor->next)
+	for (int i = 0; i < top; i++)
 	{
-		prev = conductor;
-		conductor = conductor->next;
+		if (stiva[i] == a)
+			return i + 1;
 	}
 	
-	int info = conductor->info;
-	
-	return info;
-}
-
-int search (const int &a, node *stack)
-{
-	node *conductor = stack->next;
-	int count = 0;
-	while (conductor->next)
-	{
-		if (conductor->info == a)
-			return count;
-		conductor = conductor->next;
-		count++;
-	}
 	return -1;
+}
+
+void print (int *stiva)
+{
+	for (int i = 0; i < top; i++)
+	{
+		cout << stiva[i] << ' ';
+	}
+	cout << endl;
 }
 
 int main (int argc, char const *argv[])
 {
-	node *stiva = new node;
-	print (stiva);
+	int stiva[MULT];
 	
 	push (1, stiva);
 	push (2, stiva);

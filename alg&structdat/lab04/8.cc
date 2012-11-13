@@ -5,76 +5,85 @@ struct node
 {
 	int info;
 	node *next;
+	node()
+	{
+		info = 0;
+		next = 0;
+	}
 };
 
-void printList (node *head)
+void print_circular_list (node *list)
 {
-	node *conductor = head;
-	
-	while (conductor->next)
-	{	
-		conductor = conductor->next;
+	node *conductor = list->next;
+	while (true)
+	{
 		cout << conductor->info << ' ';
+		if (conductor->info >= conductor->next->info)
+			break;
+		conductor = conductor->next;
 	}
-	cout << '\n';
+	cout << endl;
 }
 
-void game (node *head, const int &K)
+void game (node *list, const int &k)
 {
-	node *conductor = head, *prev = head;
-	
-	int step = 0;
-	
-	while (conductor->next)
+	node *conductor = list->next, *prev = list;
+	int count = 1;
+	while (true)
 	{
-		step++;
-		cout << conductor->next->info << ' ';
-		if (step == K)
+		// cout << conductor->info << ' ';
+		if (count == k)
 		{
-			cout << "! => ";
-			step = 0;
+			// cout << '!' << endl;
+			// cout << conductor->info << " is the target. ";
+			if (conductor->info < prev->info)
+			{
+				// cout << "And it's also the head.\n";
+				list->next = conductor->next;
+			}
 			
-			node *target = conductor->next;
-			if (!conductor->next->next)
-				conductor->next = head;
-			else
-				conductor->next = conductor->next->next; // this bullshit here, for the edge case when we have to delete the last element in the list
+			node *target = conductor;
+			conductor = conductor->next;
 			delete target;
-			printList(head);
+			prev->next = conductor;
+			count = 1;
+			
+			// cout << "Deleted: ";
+			// print_circular_list (list);
 		}
-		prev = conductor;
-		conductor = conductor->next;
-		if (!conductor->next)
-			conductor = head;
-		
-		if (prev->info == conductor->info)
+		else
+		{	
+			prev = conductor;
+			conductor = prev->next;
+			count++;
+		}
+		if (conductor->info == conductor->next->info)
 			break;
 	}
-	// printList(head);
+	cout << conductor->info << endl;
 }
 
 int main (int argc, char const *argv[])
 {
-	node *head = new node;
-	head->next = 0;
+	node *list = new node;
+	list->next = 0;
 	
-	const int N = 12, K = 7;
+	const int N = 1000, K = 7;
 	
-	// generate list
-	node *prev = head;
+	node *prev = list;
 	for (int i = 1; i <= N; i++)
 	{
-		node *conductor = new node;
-		conductor->info = i;
-		conductor->next = 0;
-		
-		prev->next = conductor;
-		prev = conductor;
+		node *add = new node;
+		add->info = i;
+		prev->next = add;
+		prev = add;
 	}
 	
-	printList(head);
+	prev->next = list->next; // circular!
 	
-	game(head, K);
+	// print_circular_list (list);
+	
+	game (list, K);
 	
 	return 0;
 }

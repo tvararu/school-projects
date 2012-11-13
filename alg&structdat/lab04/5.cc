@@ -10,7 +10,7 @@ struct node
 		info = 0;
 		next = 0;
 	}
-};
+} *back;
 
 bool isEmpty (node *queue)
 {
@@ -19,16 +19,11 @@ bool isEmpty (node *queue)
 
 void push (const int &a, node *queue)
 {
-	node *conductor = queue;
-	while (conductor->next)
-	{
-		conductor = conductor->next;
-	}
-	
 	node *add = new node;
 	add->info = a;
 	
-	conductor->next = add;
+	back->next = add;
+	back = add;
 }
 
 
@@ -52,6 +47,9 @@ int pop (node *queue)
 	int info = queue->next->info;
 	queue->next = queue->next->next;
 	delete queue->next;
+	
+	if (isEmpty (queue))
+		back = queue;
 	
 	return info;
 }
@@ -81,6 +79,7 @@ int search (const int &a, node *queue)
 int main (int argc, char const *argv[])
 {
 	node *coada = new node;
+	back = coada;
 	print (coada);
 	
 	push (1, coada);

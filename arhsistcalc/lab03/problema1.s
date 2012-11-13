@@ -1,7 +1,7 @@
 .data
  x: .word 111
  y: .word 222
- z: .word 3
+ z: .word 333
  messageX: .asciiz "X este cel mai mare!\n"
  messageY: .asciiz "Y este cel mai mare!\n"
  messageZ: .asciiz "Z este cel mai mare!\n"
@@ -10,7 +10,9 @@
 main:
 	lw $t0, x
 	lw $t1, y
-	lw $t2, z
+	lw $t2, z	
+	
+	
 	
 	blt $t0, $t1, x_smaller_than_y
 	j x_greater_than_y
