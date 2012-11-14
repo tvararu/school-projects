@@ -22,7 +22,7 @@ void read (node *lista)
 	{
 		int val = 0;
 		scanf("%d", &val); //printf("%d\n", val);
-		node *add = (node*)calloc(5, sizeof(int));
+		node *add = (node*)malloc(sizeof(node));
 		add->info = val;
 		conductor->next = add;
 		conductor = conductor->next;
@@ -58,7 +58,8 @@ int search (const int &a, node *lista)
 
 int main (int argc, char const *argv[])
 {
-	node *list = (node*)calloc(5, sizeof(int));
+	node *list = (node*)malloc(sizeof(node));
+	
 	read (list);
 	
 	print (list);
