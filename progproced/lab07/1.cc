@@ -23,7 +23,7 @@ int main (int argc, char const *argv[])
 	// }
 	
 	int *par = (int*)calloc(n - impare, sizeof(int));
-	int *impar = (int*)calloc(n, sizeof(int));
+	int *impar = (int*)calloc(impare, sizeof(int));
 	
 	int parCount = 0, imparCount = 0;
 	for (int i = 0; i < n; i++)
@@ -64,7 +64,7 @@ int main (int argc, char const *argv[])
 	strcat(pathPare, path);
 	strcat(pathPare, strPare);
 	
-	// printf("%s\n", pathPare);
+	printf("%s\n", pathPare);
 	
 	char strImpare[255];
 	
@@ -79,7 +79,7 @@ int main (int argc, char const *argv[])
 	strcat(pathImpare, path);
 	strcat(pathImpare, strImpare);
 	
-	// printf("%s\n", pathImpare);
+	printf("%s\n", pathImpare);
 	
 	printf("%s\n", (char*)system(pathPare));
 	printf("%s\n", (char*)system(pathImpare));
