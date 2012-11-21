@@ -9,12 +9,6 @@ int compare (const void * a, const void * b)
 
 int main (int argc, char const *argv[])
 {
-	/* code */
-	return 0;
-}
-
-int main (int argc, char const *argv[])
-{
 	int *numere = (int*)calloc(argc, sizeof(int));
 		
 	for (int i = 1; i < argc; i++)

@@ -4,10 +4,10 @@ using namespace std;
 
 int main (int argc, char const *argv[])
 {
-	string w = "abcxabcabc";
+	string w = "ababa";
 	string margine;
-	unsigned begin = 0, runner = 0;
-	while (++runner < w.length())
+	unsigned begin = 0, runner = 1;
+	while (runner < w.length())
 	{
 		if (w[begin] == w[runner])
 		{
@@ -20,6 +20,7 @@ int main (int argc, char const *argv[])
 				{
 					match = false;
 					begin = 0;
+					runner -= 2;
 					break;
 				}
 			}
@@ -29,9 +30,13 @@ int main (int argc, char const *argv[])
 				margine = found;
 			}
 		}
+		runner++;
 	}
 	
-	cout << margine << endl;
+	if (margine.length ())
+		cout << margine << endl;
+	else
+		cout << "Nu exista margine.\n";
 	
 	return 0;
 }

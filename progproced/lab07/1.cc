@@ -64,7 +64,7 @@ int main (int argc, char const *argv[])
 	strcat(pathPare, path);
 	strcat(pathPare, strPare);
 	
-	printf("%s\n", pathPare);
+	// printf("%s\n", pathPare);
 	
 	char strImpare[255];
 	
@@ -79,10 +79,10 @@ int main (int argc, char const *argv[])
 	strcat(pathImpare, path);
 	strcat(pathImpare, strImpare);
 	
-	printf("%s\n", pathImpare);
+	// printf("%s\n", pathImpare);
 	
-	printf("%s\n", (char*)system(pathPare));
-	printf("%s\n", (char*)system(pathImpare));
+	system(pathPare);
+	system(pathImpare);
 	
 	return 0;
 }
