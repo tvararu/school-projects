@@ -3,7 +3,7 @@ v: .word 1, 28, 3, 4, 5
 n: .word 5
 i: .space 4
 sum: .space 4
-x: .word 28
+x: .word 27
 y: .space 4
 newline: .asciiz "\n"
 
@@ -13,6 +13,8 @@ main:
 	sw		$t0, i
 	sw		$t0, y
 	
+	lw		$t1, n
+	beqz	$t1, end
 loop:
 	lw		$t1, v($t0)
 	lw		$t2, x

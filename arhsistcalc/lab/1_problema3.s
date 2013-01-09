@@ -11,6 +11,8 @@ main:
 	sw		$t0, i
 	
 	li		$t2, 0		# sum register
+	lw		$t1, n
+	beqz	$t1, end
 loop:
 	
 	lw		$t1, v($t0)

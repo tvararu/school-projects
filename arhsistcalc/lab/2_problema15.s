@@ -1,5 +1,5 @@
 .data
-target: .word 255
+target: .word 13
 sum: .word 0
 endl: .byte 10
 
@@ -29,6 +29,5 @@ end_loop:
 	la		$a0, endl
 	syscall					# execute
 	
-end:
 	li		$v0, 10		# $v0 = 10
 	syscall	
