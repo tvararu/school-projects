@@ -12,8 +12,6 @@ main:
 	lw $t1, y
 	lw $t2, z	
 	
-	
-	
 	blt $t0, $t1, x_smaller_than_y
 	j x_greater_than_y
 	

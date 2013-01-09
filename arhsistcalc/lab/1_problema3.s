@@ -33,11 +33,11 @@ end:
 	
 	li		$v0, 1		# system call #1 - print int
 	lw		$a0, sum
-	syscall				# execute
+	syscall					# execute
 	
 	li		$v0, 4		# system call #4 - print string
 	la		$a0, newline
-	syscall				# execute
+	syscall					# execute
 	
 	li		$v0, 10
 	syscall
