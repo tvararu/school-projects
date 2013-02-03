@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <cstdio>
 using namespace std;
 
 int N;

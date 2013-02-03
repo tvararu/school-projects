@@ -1,0 +1,83 @@
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,a4paper,tmargin=1.27cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}
+
+
+\begin{document}
+	\noindent\underline{Legile lui DeMorgan:} \newline
+	$\overline{x \vee y} = \overline{x} \wedge \overline{y}; \overline{x \wedge y} = \overline{x} \vee \overline{y}$ \newline
+	\underline{Decala unei expresii:} \newline
+	Dacă $E(V_{1}, ..., V_{n})$ este o expresie, atunci expresia decală: $E^{d}(V_{1}, ..., V_{n})$ se obtine interschimbând 1 cu 0 si $\vee$ cu $\wedge$. $E(x, y, z) = x \vee (y \wedge \overline{z}) \Rightarrow E^{d}(x, y, z) = x \wedge (y \vee \overline{z})$ \newline
+	\underline{Principiul dualitătii:} $E_{1}(V_{1}, ..., V_{n}) = E_{2}(V_{1}, ..., V_{n}) \Leftrightarrow E^{d}_{1}(V_{1}, ..., V_{n}) = E^{d}_{2}(V_{1}, ..., V_{n})$ \newline
+	$(A, \vee, \wedge, \bar{ }, 0, 1)$ Algebră Boole: \newline
+	$\bullet x \rightarrow y := \overline{x} \vee y$ \newline
+	$x \leq y \Leftrightarrow x \rightarrow y = 1$ \newline
+	$x \rightarrow (y \rightarrow x) = 1, (x \rightarrow y) \rightarrow ((y \rightarrow z) \rightarrow (x \rightarrow z)) = 1$ \newline
+	$\bullet x \leftrightarrow y := (x \rightarrow y) \wedge y \rightarrow x$ \newline
+	$x \leftrightarrow y = 1 \Leftrightarrow x = y$ \newline
+	$\overline{x} \Leftrightarrow \overline{y} = x \leftrightarrow y, (x \leftrightarrow y) \leftrightarrow z = x \leftrightarrow (y \leftrightarrow z)$ \newline
+	$\bullet x + y := (x \leftrightarrow y)^{d} = (\overline{x} \wedge y) \vee (\overline(y) \vee x)$ \newline
+	$x + x = 0, x + y = y + x$ \newline
+	$x + z \leq (x+ y) \vee (y + z)$ \newline
+	Operatia $(x, y) \mapsto x + y$ are proprietatile unei distante. \newline
+	Definim $x \cdot y = x \wedge y$ \newline
+	$R(A) = (A, \vee, \wedge, \bar{ }, 0, 1)$ este \underline{inel Boole} cu $x \cdot x = X$, or. $x \in A$ \newline
+	$\bullet x \cdot y  + y \cdot x = 0$, $y \cdot x = - (x \cdot y)$ \newline
+	$(x + y) \cdot (x + y) = x + y \Rightarrow x + x \cdot y + y \cdot x + y = x + y$ \newline
+	$\bullet x + x = 0$, $x = -x$ \newline
+	$\bullet x \cdot y = y \cdot x$ \newline
+	$x \cdot y = - (x \cdot y) = y \cdot x$ \newline
+	Definim $x \vee y := x + y + x \cdot y$ si $x \wedge y = x \cdot y$ \newline
+	$(A, \bigcap, \bigcup, \bar{ }, \emptyset, A)$ este \underline{algebră Boole de functii} \newline
+	$\bullet 0, 1, \in F; f_{1}, f_{2} \in F \Rightarrow f_{1} \vee f_{2}, f_{1} \wedge f_{2} \in F, \overline{f_{1}} \in F$ \newline
+	$\bullet$ or. $x \in X, 0(x) = 0, 1(x) = 1, \overline{f_{1}} = \overline{f_{1}(x)}$ \newline
+	$(f_{1} \vee f_{2})(x) = f_{1}(x) \vee f_{2}(x); (f_{1} \vee f_{2})(x) = f_{1}(x) \wedge f_{2}(x)$ \newline
+	S este \underline{subalgebră} a lui A dacă: \newline
+	$\bullet (A, \vee, \wedge, \bar{ }, 0, 1)$ algebră Boole; $S \subseteq A$ \newline
+	$\bullet 0, 1 \in S; x, y \in S \Rightarrow x \vee x, x \wedge y, \overline{x} \in S$ \newline
+	O functie $f: A \rightarrow B$ este \underline{morfism de algebră Boole dacă:}
+	$\bullet f(O_{A}) = O_{B}, f(1_{A}) = 1_{B}$ \newline
+	$\bullet f(\overline(x)) = f(x)$ \newline
+	$\bullet f(x \vee _{A} y) = f(x) \vee _{B} f(y), f(x \wedge _{A} y) = f(x) \wedge _{B} f(y)$ \newline
+	Un morfism injectiv se numeste \underline{scufundare} \newline
+	Un \underline{izomorfism} este un morfism bijectiv. \newline
+	Algebrele Boole A si B sunt izomorfe dacă există un izomorfism $f: A \rightarrow B$. În acest caz scriem $A \simeq B$ \newline
+	O \underline{congruentă} pe A este o relatie $\equiv \subseteq A x A$ care verifică \newline
+	$\bullet \equiv$ este relatie de echivalenta \newline
+	$\bullet x \equiv y \Rightarrow \overline{x} \equiv \overline{y}$ \newline
+	$\bullet x_{1} \equiv y_{1}$ si $x_{2} \equiv y_{2} \Rightarrow x_{1} \vee x_{2} \equiv y_{1} \vee y_{2}$, $x_{1} \wedge x_{2} \equiv y_{1} \wedge y_{2}$ \newline
+	\newline
+	
+	\noindent\underline{Constructia algebrei cât:} \newline
+	Pe $A/\equiv$ definim: \newline
+	$\hat{x} \vee \hat{y} = \widehat{x \vee y}$, $\hat{x} \wedge \hat{y} = \widehat{x \wedge y}$, $\hat{\bar{x}} = \bar{\hat{x}}$ \newline
+	Atunci $(A/\equiv, \vee, \wedge, \bar{ }, \hat{0}, \hat{1})$ este algebră Boole \newline
+	O submultime $F \subseteq A$ s.n. \underline {filtru} daca: \newline
+	$1 \in F$; $x \in F$, $x \subseteq y \Rightarrow y \in F$, $x, y \in F \Rightarrow x \wedge y \in F$ \newline
+	Un filtru e \underline{propriu} dacă $0 \notin F (F \neq A)$ \newline
+	$0 \in F, x \in F, x \leq y \Rightarrow y \in F, x, y \in F \Rightarrow x \wedge y \in F$ \newline
+	Un ideal e \underline{propriu} dacă $1 \notin F(F \neq A)$ \newline
+	\underline{Teoremă} \newline
+	(1) Dacă $F \subseteq A$ filtru, definim $\equiv F \subseteq A x A$ prin: \newline
+	$x \equiv _{F} y \Leftrightarrow x \leftrightarrow y \in F \Leftrightarrow x \rightarrow y \in F$ si $y \rightarrow x \in F$ \newline
+	(2) Dacă $\equiv \not\subseteq A x A$ este o congruentă pe A definim: \newline
+	$F_{\equiv} := \hat{1} = \{x \in A / x \equiv 1\}$ \newline
+	Atunci $F_{\equiv}$ este filtru în A \newline
+	(3) Dacă $F \subseteq A$ este un filtru si $\equiv \subseteq A x A$ este o congruentă: \newline
+	Atunci $F = F_{\equiv _{F}}$, si $\equiv = \equiv _{F_{\equiv}}$ \newline
+	Un \underline{ultrafiltru} este un filtru care verifică: \newline
+	(1) $x \in F \Leftrightarrow \overline{x} \notin F$ or. $x \in A$ \newline
+	(2) $x \vee y \in F \Leftrightarrow x \in F$ sau $y \in F$ or. $x, y \in F$ \newline
+	(3) $F \subseteq U$, U filtru propriu $\Rightarrow F = U$ \newline
+	\underline{Lema lui Zorn} \newline
+	Fie $(R, \leq)$ mpo cu proprietatea că or. lant $C \subseteq P$ are majorant \newline
+	Atunci P are cel putin un element maximal. \newline
+	\underline{P:} Dacă $x \in A$, $x \neq 0$ atunci exista U un ultrafiltru a.î. $x \in U$ \newline
+	$\Rightarrow$ Multimea ultrafiltrelor este nevidă \newline
+	$\Rightarrow$ $\bigcap \{ \bigcup \subseteq A / $ U ultrafiltru$\} = \{ 1\}$ \newline
+	\underline{Teorema de reprezentare a lui Stone:} \newline
+	Pt. orice algebră Boole A există X o multime si un morfism injectiv $\alpha : A \rightarrow P(x)$ \newline
+	Elementele minimale din $A \backslash \{ 0 \}$ se numesc \underline{atomi}. Algebra A s.n. \underline{atomică} dacă pentru or. $x \neq 0$ există un atom $a \in A$ a.î. $a \subseteq x$.
+	\underline{Teoremă}: Dacă A o algebră Boole finită, atunci $\simeq P(A t(A))$ si izomorfismul este: $d: A \rightarrow P(A t(A)), d(x) = \{ a \in A /$ a atom, $a \leq x \}$, or. $x \neq 0$ \newline
+\end{document}

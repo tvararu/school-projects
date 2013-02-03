@@ -3897,7 +3897,7 @@ III.27) (12 puncte)
   Programul va parcurge liniar fluxul (stringul) de intrare procesand 
  succesiv comenzile; pentru fiecare comanda corecta va executa procedura
  care o implementeaza si care va scrie la iesire rezultatul comenzii si un 
- <LF>; pentru fiecare comanda eronata va executa automat comanda (procedura)
+ <LF>; pentru fiecare comanda eronata va executa automat comanda (procedura) 
  de eroare, care va scrie la iesire un "e"; la intalnirea lui <EOF> va 
  executa automat comanda (procedura) de terminare a programului.
   De exemplu daca stringul de intrare contine:
