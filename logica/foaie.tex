@@ -1,14 +1,100 @@
-\documentclass[twocolumn]{article}
+\documentclass[8pt,twocolumn]{extarticle}
 \usepackage[utf8]{inputenc}
+\usepackage{mathtools} % matrices, cases
+\usepackage{amsfonts} % natural/whole/real/etc. number sets
 \usepackage{geometry}
-\geometry{verbose,a4paper,tmargin=1.27cm,bmargin=2cm,lmargin=1cm,rmargin=1cm}
+\geometry{verbose,a4paper,tmargin=0.8cm,bmargin=0.8cm,lmargin=0.8cm,rmargin=0.8cm}
 
 
 \begin{document}
-	\noindent\underline{Legile lui DeMorgan:} \newline
-	$\overline{x \vee y} = \overline{x} \wedge \overline{y}; \overline{x \wedge y} = \overline{x} \vee \overline{y}$ \newline
-	\underline{Decala unei expresii:} \newline
-	Dacă $E(V_{1}, ..., V_{n})$ este o expresie, atunci expresia decală: $E^{d}(V_{1}, ..., V_{n})$ se obtine interschimbând 1 cu 0 si $\vee$ cu $\wedge$. $E(x, y, z) = x \vee (y \wedge \overline{z}) \Rightarrow E^{d}(x, y, z) = x \wedge (y \vee \overline{z})$ \newline
+	\pagenumbering{gobble}
+	\noindent Relatia R se numeste: \newline
+	$\bullet$ totală: or. $a \in A$, ex. $x, b \in B$ a.î. $(a, b) \in \mathbb{R}$ \newline
+	$\bullet$ surjectivă: or. $b \in B$, ex. $a \in A$ a.î. $(a, b) \in \mathbb{R}$ \newline
+	$\bullet$ inj: or. $a_{1}, a_{2} \in A$, or. $b \in B; (a_{1}, b) \in \mathbb{R}$ si ${a_{2}, b} \in \mathbb{R}$ implică $a_{1} = a_{2}$ \newline
+	$\bullet$ func: or. $a \in A$, or. $b_{1}, b_{2} \in B, (a, b_{1}) \in \mathbb{R}$ si $(a, b_{2}) \in \mathbb{R}$ implică $b_{1} = b_{2}$ \newline
+	O functie este o relatie totală si functională. \newline
+	$f: A \rightarrow B$ este inversabilă $\Leftrightarrow$ ex. $g: B \rightarrow A$ a.î. $g \circ f = 1_{A}$ si $f \circ g = 1_{B}$ \newline
+	(1) $x_{A \cap B} = min(x_{A}(x), x_{B}(x)) = x_{A}(x) \cdot x_{B}(x)$ \newline
+	(2) $x_{A \cup B} = max(x_{A}(x), x_{B}(x)) = x_{A}(x) + x_{B}(x) - x_{A}(x) \cdot x_{B}(x)$ \newline
+	(3) $x_{\overline{A}}(x) = 1 - x_{A}(x)$ \newline
+	\underline{Functia caracteristică} a lui A fată de T este: \newline
+	$x_{A}: T \rightarrow \{ 0, 1 \}, x_{A}(x) =
+	\begin{cases}
+		0, x \notin A\\
+		1, x \in A
+	\end{cases}$ \newline
+	\underline{Un operator de închidere} pe T este $C: P(T) \rightarrow P(T)$ care verifică: \newline
+	$\begin{rcases*}
+		(1) A \subseteq C(A) \\
+		(2) A \subseteq B\text{ implică }C(A) \subseteq C(B) \\
+		(3) C(C(A)) = C(A)
+	\end{rcases*}$, or. $A, B \subseteq T$ \newline
+	O multime $R \subseteq A \times A$, relatia binară R se numeste: \newline
+	$\bullet$ reflexivă: $(x, x) \in \mathbb{R}$, or. $x \in A$ \newline
+	$\bullet$ simetrică: $(x, y) \in \mathbb{R}$ implică $(y, x) \in \mathbb{R}$, or. $x, y \in A$ \newline
+	$\bullet$ antisimetrică: $(x, y)$ si $(y, x) \in \mathbb{R}$ implică $x = y$, or. $x, y \in A$ \newline
+	$\bullet$ tranzitivă: $(x, y) in \mathbb{R}$ si $(y, z) \in \mathbb{R}$ implică $(x, z) \in R$, or. $x, y, z \in A$ \newline
+	$\bullet$ relatie de preordine: reflexivă, tranzitivă \newline
+	$\bullet$ relatie de ordine: reflexivă, antisimetrică, tranzitivă \newline
+	$\bullet$ relatie de echivalenta: reflexivă, simetrică, tranzitivă \newline
+	$R(R) = R \cup \Delta _{A} \rightarrow$ reflexivă \newline
+	$S(R) = R \cup R^{-1} \rightarrow$ simetrică \newline
+	$\Upsilon(R) = \bigcup_{n \geq 1} R^{n}$, unde $R^{n} = \underset{n}{\underbrace{R \circ ... \circ R}} \rightarrow$ tranzitivă \newline
+	$\varepsilon(R) = \Upsilon(S(R(R))) \rightarrow$ echivalentă \newline
+	``$\sim$'' relatie de echivalentă: $x \sim y$ înseamnă $(x, y) \in \sim$ \newline
+	$\hat{x} = {y \in A / x \sim y}$ (clasa de echivalentă a lui x) \newline
+	Un \underline{sistem de reprezentanti} pentru $\sim$ este $x \subseteq A$ cu proprietatea: \newline
+	or. $a \in A$, ex. un unic $x \in X$ a.î. $a \sim x$ \newline
+	(1) $\hat{x} = \hat{y} \Leftrightarrow x \sim y$ \newline
+	(2) $\hat{x} \cap \hat{y} = \emptyset \Leftrightarrow x \not\sim y$ \newline
+	(3) $A = U \{ \hat{x} / x \in X \}$, or. $x \subseteq A$ \newline
+	A/$\sim \quad = \{ \hat{x} / x \in A \}$ (multimea claselor de echivalentă) \newline
+	$P \sim : A \rightarrow A/\sim, P\sim(x) = \hat{x}$ or. $x \in A$ (surjectie canonică) \newline
+	Pe $A/\sim$ definim $\hat{x} \prec \hat{y} \Leftrightarrow (x, y) \in \mathbb{R}$, ``$\prec$'' relatie de ordine $x \sim x_{1}, y \sim y_{1}$ si $\hat{x} \prec \hat{y}$ implică $\hat{x_{1}} \prec \hat{y_{1}}$ \newline
+	Un \underline{lant} este o mult total ordonată (toate elem din mult sunt comp). \newline
+	Relatie de ordine pe componente: \newline
+	$(x_{1}, x_{2}) \leq (y_{1}, y_{2}) \Leftrightarrow x_{1} \leq _{1} y_{1}$ si $x_{2} \leq _{2} y_{2}$ \newline
+	Relatia de ordine lexicografică: \newline
+	$(x_{1}, x_{2}) \leq (y_{1}, y_{2}) \Leftrightarrow (x_{1} \leq _{1} y_{1}$ si $x_{1} \neq y_[1])$ sau $(x_{1} = y_{2}$ si $x_{2} \leq _{2} y_{2})$ \newline
+	O mult este \underline{bine ordo} dacă este submult nevidă ce nu are un prim elem. \newline
+	\underline{PBO}: $\mathbb{N}$ este bine ordonată \newline
+	\underline{PI}: $S \subseteq \mathbb{N}$ a.î. (i) $O \in S$ \newline
+	(ii) or. $n \in \mathbb{N} (n \in S \leftrightarrow n + 1 \in S)$ atunci $S = \mathbb(N)$ \newline
+	O \underline{EPO} este o multime partial ordonată $(C, \subseteq)$ cu: \newline
+	$\bullet$ C are prim element $\perp$ $\bullet$ sup X există pentru orice lant $x \subseteq C$ \newline
+	O \underline{mpo} este o \underline{latice} daca sup$\{x_{1}, x_{2}\}$ si inf$\{x_{1}, x_{2}\}$ există or. $x_{1}, x_{2} \in L$. Laticea $(L-, \leq)$ este \underline{completă} dacă infX si supX există or. $x \subseteq L$ \newline
+	Un element $a \in A$ este \underline{punct fix} al unei functii $f: A \leftarrow A$ dacă $f(a) = a$ \newline
+	\underline{Teorema Knaster-Tarski pentru latici complete} \newline
+	Fie $(L, \leq)$ latice completă si $F: L \leftarrow L$ o functie crescătoare. Atunci $a = inf\{ x \in L / F(x) \leq x \}$ este cel mai mic punct fix al functiei F. \newline
+	\underline{Teorema Knaster-Tarski pentru CPO}: \newline
+	Fie $(C, \leq)$ o CPO si $F: C \rightarrow C$ o functie continuă. Atunci $a = sup\{ F^{n}(\perp) / n \in \mathbb{N} \}$ cel mai mic punct fix al functiei F. \newline
+	\underline{Infinumul si supremumul} devin operatii pe L: \newline
+	$\vee : L \times L \rightarrow L, x_{1} \vee x_{2} := sup\{ x_{1}, x_{2} \}$ \newline
+	$\wedge : L \times L \rightarrow L, x_{1} \wedge x_{2} := inf\{ x_{1}, x_{2} \}$ \newline
+	$\bullet$ asociativitate: $(x \vee y) \vee z = x \vee (y \vee z), (x \wedge y) \wedge z = x \wedge (y \wedge z)$ \newline
+	$\bullet$ comutativitate: $x \vee y = y \vee x, x \wedge y = y \wedge x$ \newline
+	$\bullet$ absorbtie: $x \vee (x \wedge y) = x, x \wedge (x \vee y) = x$ \newline
+	O latice este \underline{structură algebrică} $(L, \vee, \wedge)$ unde $\vee, \wedge$ relatii binare asociative, comutative, cu proprietatea de absorbtie. \newline
+	$x \vee y = y \Leftrightarrow x \wedge y = x$, or. $x, y \in L$ \newline
+	$x \leq y \Leftrightarrow x \vee y = y \Leftrightarrow x \wedge y = x$ \newline
+	$sup\{ x, y \} = x \vee y, inf\{ x, y \} = x \wedge y$, or. $x, y \in L$ \newline
+	O latice este \underline{mărginită} dacă are prim si ultim element. Se notează cu $(L, \leq, 0, 1)$ iar ca structură algebrică $(L, \wedge, \vee, 0, 1)$ \newline
+	$x \vee 0 = x, x \wedge 0 = 0, x \vee 1 = 1, x \wedge 1 = x$, or. $x \in L$ \newline
+	x este \underline{complement} al lui y dacă $x \vee y = 1$ si $x \wedge y = 0$ \newline
+	L este \underline{complementată} dacă or. $x \in L$ are un complement \newline
+	L este \underline{distributivă} dacă or. $x, y \in L$ \newline
+	$x \vee (y \wedge z) = (x \vee y) \wedge (x \vee z)$ si $x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$ \newline
+	O \underline{algebră Boole} este o latice distributivă si complementată cu prim si ultim element. Este structura $(A, \vee, \wedge, _{ }, 0, 1)$ care satisface următoarele identitati: \newline
+	$(L_{1}) (x \vee y) \vee z = x \vee (y \vee z), (x \wedge y) \wedge z = x \wedge (y \wedge z)$ \newline
+	$(L_{2}) x \vee y = y \vee x, x \wedge y = y \wedge x$; $(L_{3}) x \vee (x \wedge y) = x, x \wedge (x \vee y) = x$ \newline
+	(D) $x \vee (y \wedge z) = (x \vee y) \wedge (x \vee z), x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$ \newline
+	(P) $x \vee 0 = x, x \wedge 0 = 0$; (U) $x \wedge 1 = x, x \vee 1 = 1$; (C) $x \vee \overline{x} = 1, x \vee \overline{x} = 0$ \newline
+	$y = \overline{x} \Leftrightarrow x \vee y = 1$ si $x \wedge y = 0$; $\overline{x} = x$ \newline
+	$x \leq y \Rightarrow x \vee z \leq y \vee z, x \wedge z \leq y \wedge z$; $x \leq y \Leftrightarrow x \wedge \overline{y} = 0 \Leftrightarrow \overline{x} \wedge y = 1 \Leftrightarrow \overline{y} \leq \overline{x}$; \newline
+	$x \vee x = x \wedge x = x$ \newline
+	\noindent \underline{Legile lui DeMorgan:} $\overline{x \vee y} = \overline{x} \wedge \overline{y}; \overline{x \wedge y} = \overline{x} \vee \overline{y}$ \newline
+	\underline{Decala unei expresii:} Dacă $E(V_{1}, ..., V_{n})$ este o expresie, atunci expresia decală: $E^{d}(V_{1}, ..., V_{n})$ se obtine interschimbând 1 cu 0 si $\vee$ cu $\wedge$. $E(x, y, z) = x \vee (y \wedge \overline{z}) \Rightarrow E^{d}(x, y, z) = x \wedge (y \vee \overline{z})$ \newline
 	\underline{Principiul dualitătii:} $E_{1}(V_{1}, ..., V_{n}) = E_{2}(V_{1}, ..., V_{n}) \Leftrightarrow E^{d}_{1}(V_{1}, ..., V_{n}) = E^{d}_{2}(V_{1}, ..., V_{n})$ \newline
 	$(A, \vee, \wedge, \bar{ }, 0, 1)$ Algebră Boole: \newline
 	$\bullet x \rightarrow y := \overline{x} \vee y$ \newline
@@ -29,7 +115,7 @@
 	$\bullet x \cdot y = y \cdot x$ \newline
 	$x \cdot y = - (x \cdot y) = y \cdot x$ \newline
 	Definim $x \vee y := x + y + x \cdot y$ si $x \wedge y = x \cdot y$ \newline
-	$(A, \bigcap, \bigcup, \bar{ }, \emptyset, A)$ este \underline{algebră Boole de functii} \newline
+	$(A, \cap, \cup, \bar{ }, \emptyset, A)$ este \underline{algebră Boole de functii} \newline
 	$\bullet 0, 1, \in F; f_{1}, f_{2} \in F \Rightarrow f_{1} \vee f_{2}, f_{1} \wedge f_{2} \in F, \overline{f_{1}} \in F$ \newline
 	$\bullet$ or. $x \in X, 0(x) = 0, 1(x) = 1, \overline{f_{1}} = \overline{f_{1}(x)}$ \newline
 	$(f_{1} \vee f_{2})(x) = f_{1}(x) \vee f_{2}(x); (f_{1} \vee f_{2})(x) = f_{1}(x) \wedge f_{2}(x)$ \newline
@@ -37,19 +123,15 @@
 	$\bullet (A, \vee, \wedge, \bar{ }, 0, 1)$ algebră Boole; $S \subseteq A$ \newline
 	$\bullet 0, 1 \in S; x, y \in S \Rightarrow x \vee x, x \wedge y, \overline{x} \in S$ \newline
 	O functie $f: A \rightarrow B$ este \underline{morfism de algebră Boole dacă:}
-	$\bullet f(O_{A}) = O_{B}, f(1_{A}) = 1_{B}$ \newline
-	$\bullet f(\overline(x)) = f(x)$ \newline
+	$\bullet f(O_{A}) = O_{B}, f(1_{A}) = 1_{B}$; $\bullet f(\overline{x}) = f(x)$ \newline
 	$\bullet f(x \vee _{A} y) = f(x) \vee _{B} f(y), f(x \wedge _{A} y) = f(x) \wedge _{B} f(y)$ \newline
-	Un morfism injectiv se numeste \underline{scufundare} \newline
-	Un \underline{izomorfism} este un morfism bijectiv. \newline
-	Algebrele Boole A si B sunt izomorfe dacă există un izomorfism $f: A \rightarrow B$. În acest caz scriem $A \simeq B$ \newline
+	Un morfism inj s.n. \underline{scufundare}. Un \underline{izomorfism} este un morfism bij. \newline
+	Algebrele Boole A si B sunt izomorfe dacă există un izomorfism $f: A \rightarrow B$. În acest caz scriem $A \simeq B$. \newline
 	O \underline{congruentă} pe A este o relatie $\equiv \subseteq A x A$ care verifică \newline
 	$\bullet \equiv$ este relatie de echivalenta \newline
 	$\bullet x \equiv y \Rightarrow \overline{x} \equiv \overline{y}$ \newline
 	$\bullet x_{1} \equiv y_{1}$ si $x_{2} \equiv y_{2} \Rightarrow x_{1} \vee x_{2} \equiv y_{1} \vee y_{2}$, $x_{1} \wedge x_{2} \equiv y_{1} \wedge y_{2}$ \newline
-	\newline
-	
-	\noindent\underline{Constructia algebrei cât:} \newline
+	\noindent \underline{Constructia algebrei cât:} \newline
 	Pe $A/\equiv$ definim: \newline
 	$\hat{x} \vee \hat{y} = \widehat{x \vee y}$, $\hat{x} \wedge \hat{y} = \widehat{x \wedge y}$, $\hat{\bar{x}} = \bar{\hat{x}}$ \newline
 	Atunci $(A/\equiv, \vee, \wedge, \bar{ }, \hat{0}, \hat{1})$ este algebră Boole \newline
@@ -75,9 +157,9 @@
 	Atunci P are cel putin un element maximal. \newline
 	\underline{P:} Dacă $x \in A$, $x \neq 0$ atunci exista U un ultrafiltru a.î. $x \in U$ \newline
 	$\Rightarrow$ Multimea ultrafiltrelor este nevidă \newline
-	$\Rightarrow$ $\bigcap \{ \bigcup \subseteq A / $ U ultrafiltru$\} = \{ 1\}$ \newline
+	$\Rightarrow$ $\cap \{ \cup \subseteq A / $ U ultrafiltru$\} = \{ 1\}$ \newline
 	\underline{Teorema de reprezentare a lui Stone:} \newline
 	Pt. orice algebră Boole A există X o multime si un morfism injectiv $\alpha : A \rightarrow P(x)$ \newline
 	Elementele minimale din $A \backslash \{ 0 \}$ se numesc \underline{atomi}. Algebra A s.n. \underline{atomică} dacă pentru or. $x \neq 0$ există un atom $a \in A$ a.î. $a \subseteq x$.
-	\underline{Teoremă}: Dacă A o algebră Boole finită, atunci $\simeq P(A t(A))$ si izomorfismul este: $d: A \rightarrow P(A t(A)), d(x) = \{ a \in A /$ a atom, $a \leq x \}$, or. $x \neq 0$ \newline
+	\underline{Teoremă}: Dacă A o algebră Boole finită, atunci $\simeq P(A t(A))$ si izomorfismul este: $d: A \rightarrow P(A t(A)), d(x) = \{ a \in A /$ a atom, $a \leq x \}$, or. $x \neq 0$
 \end{document}
