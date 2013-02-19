@@ -82,11 +82,17 @@ void read (int **&v, int &n, int &m)
 
 int main (int argc, char const *argv[])
 {
-	int **v, n = 0, m = 0;
+	int **v, n = 256, m = 256;
 	
-	read(v, n, m);
+	resize(v, n, m);
+	
+	v[125][0] = 3;
+	
+	printf("%d\n", v[125][0]);
+	
+	// read(v, n, m);
 	// normal_print(v, n, m);
-	spiral_print(v, n, m);
+	// spiral_print(v, n, m);
 	
 	return 0;
 }

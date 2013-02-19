@@ -1,0 +1,103 @@
+\documentclass[12pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools} % matrices, cases
+\usepackage{amsfonts} % natural/whole/real/etc. number sets
+\usepackage{geometry}
+\geometry{verbose,a4paper,tmargin=0.8cm,bmargin=0.8cm,lmargin=0.8cm,rmargin=0.8cm}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+	\huge \underline{Principiul Contractiilor} \\
+	{\large
+		\underline{Def.1} O functie $f \in D \subseteq (x, d_{1}) \rightarrow (y, d_{2})$ se numeste \underline{contractie} dacă \\
+		$\exists$ c $\in (0, 1) a.i. d_{2}(f(x), f(y)) \leq c \cdot d_{1}(x, y), \forall x, y \in D$ \\
+		\underline{Exemple de contractii} \\
+		1) Orice functie derivabila $f \in \underset{(interval)}{I} \subseteq R \rightarrow R$ pentru care $\underset{t \in I}{sup}|f'(x)| = c \leq 1$ \\
+		\underline{Def.2} O functie $f \in D \subseteq (x, d) \rightarrow (x, d)$ are punct fix dacă $\exists u \in D$ a.i. $f(u) = u$ \\
+		\\
+		\underline{Principiul contractiilor} \\
+		Fie $(x, d)$ un spatiu metric complet si $D = \overline{D} \subseteq X$ o multime inchisa din X. Orice contractie $f \in D \subseteq (x, d) \rightarrow (x, d)$ are un unic punct fix $u \in D$. \\
+		$\exists c \in (0, 1)$ a.i. $d(f(x), f(y)) \leq c \cdot d(x, y), \forall x, y \in D$ \\
+		Alegem un element arbitrar $a \in D$ \\
+		Construim sirul $(x_{n})_{n \in \mathbb{N}}$ definit prin relatia de recurentă $x_{n + 1} = f(x_{n}), \forall n \in \mathbb{N}$ si $x_{0} = a$ \\
+		Se demonstreaza ca sirul $(x_{n})_{n \in \mathbb{N}} \subseteq D \subseteq (x, d)$ este sir Cauchy, in consecinta el fiind si convergent. \\
+		Notăm $\underset{n \rightarrow +\infty}{lim}x_{n} = u$ \\
+		Trecem la limita relatiei de recurenta si obtinem: \\
+		$x_{n+1} = f(x_{n}), \forall n \in \mathbb{N} \underset{\underset{n \rightarrow \infty}{lim}}{\Rightarrow} u = f(u)$ \\
+		\\
+		\underline{Aproximarea punctului fix} \\
+		Pe parcursul demonstratiei teoremei se obtine urmatoarea inegalitate: \\
+		$d(x_{n}, u) \leq \frac{c^{n}}{1 - c} \cdot d(x_{1}, x_{0}), \forall n \in \mathbb{N}^{*}$ \\
+		\\
+	}
+	\newpage
+	
+	\huge \underline{Spatii Liniare (Vectoriale) Normate} \\
+	{\large
+		$K \in \{\mathbb{R}, \mathbb{C}\}$ \\
+		\underline{Def.1} Se numeste spatiu liniar (vectorial) peste corpul K o multime nevidă X pe care se definesc: \\
+		1) o lege de compozitie internă \\
+		$``+'' : XxX \rightarrow X$ \\
+		$(x, y) \rightarrow x + y$ (suma vectorilor x si y) \\
+		în raport cu care $(X, +)$ este grup abelian $(\circ_{x})$ \\
+		2) o lege de comparatie externă \\
+		$``\cdot'' : KxX \rightarrow X$ \\
+		$(\underset{scalar}{\alpha}, \underset{vector}{x}) \rightarrow \alpha \cdot \underset{vector}{x}$ (înmultirea vectorului cu scalarul $\alpha$) \\
+		\\
+		$
+		\left.\begin{matrix}
+		\alpha \cdot (x + y) = \alpha \cdot x + \alpha \cdot y \\ 
+		(\alpha + \beta) \cdot x = \alpha \cdot x + \beta \cdot x \\ 
+		(\alpha \cdot \beta) \cdot x = \alpha \cdot (\beta \cdot x)
+		\end{matrix}\right\}\begin{matrix}
+		\forall \alpha, \beta \in K \\ 
+		\forall x, y \in X
+		\end{matrix}
+		$\\
+		\\
+		$\alpha \cdot (x + y) = \alpha \cdot x + \alpha \cdot y, \forall \alpha, \beta \in K$ \\
+		$(\alpha + \beta) \cdot x = \alpha \cdot x + \beta \cdot x$ \\
+		$(\alpha \cdot \beta) \cdot x = \alpha \cdot (\beta \cdot x)$ \\
+		\\
+		\underline{Def.2} Fie x un spatiu liniar (vectorial) peste corpul $K \in \{ \mathbb{R}, \mathbb{C}\}$. Se numeste \underline{normă} pe X o functie $p : x \to R_{+}$ care are are urmatoarele proprietati: \\
+		1) $p(x + y) \leq p(x) + p(y), \forall x, y \in X$ \\
+		2) $p(\alpha \cdot x) = |\alpha|p(x), \forall \alpha \in K, \forall x \in X$ \\
+		3) $p(x) = O \Leftrightarrow x = \circ_{x}$ \\
+		\\
+		\underline{Def.3} Se numeste spatiu liniar (vectorial) normat orice spatiu liniar X pe care se defineste o normă $\| \|$.\\
+		\underline{Notatie} $(x\| \|)$ \\
+		\underline{Obs} Orice spatiu liniar normat $(x, \| \|)$ este spatiu metric. \\
+		$\| : X \in \mathbb{R_{+}}$ \\
+		$\Downarrow \not\Uparrow$ \\
+		$d : XxX \rightarrow \mathbb{R_{+}}, d(x, y) \overset{def}{=} \|x - y\| $ \\
+		1) $(\mathbb{R}, | |)$ \\
+		2) $(\mathbb{R}^{k}, \| \|_{2} ), k \geq 2$ \\
+		$\|(x_{1}, ..., x_{2})\|_{2} = \sqrt{x_{1}^{2} + x_{2}^{2} + ... + x_{k}^{2}}$ \\
+		$(\mathbb{R}^{k}, \| \|_{1} )$ \\
+		$\|(x_{1}, ..., x_{2})\|_{1} = |x_{1}| + |x_{2}| + ... + |x_{k}|$ \\
+		$(\mathbb{R}^{k}, \| \|_{\infty} )$ \\
+		$\|(x_{1}, ..., x_{2})\|_{\infty} = \underset{1 \leq i \leq k}{sup}|x_{i}|$ \\
+		\\
+	}
+	
+	\huge \underline{Functii Derivabile} \\
+	{\large
+		$f : D \subseteq \mathbb{R} \in \mathbb{R}^{k}$ \\
+		$k = 1, f : D \subseteq \mathbb{R} \to \mathbb{R}$ - functie reală \\
+		$k \geq 2, f : D \subseteq \mathbb{R} \to \mathbb{R}^{k}$ - functie vectorială \\
+		$f(x) = (f_{1}(x), f_{2}(x), ..., f_{k}(x)), \forall x \in D$ \\
+		$f = (f_{1}, f_{2}, ..., f_{k}) \to$ componentele functiei vectoriale f \\
+		\underline{Def.1} Functia $f : D \subseteq \mathbb{R} \to \mathbb{R}^{k}$ este derivabilă în \\
+		$x_{0} \in D \cap D'$ dacă $\exists \underset{x \to x_{0}}{lim}\frac{1}{x - x_{0}} \cdot (f(x) - f(x_{0})) \in \mathbb{R}^{k}$. \\
+		\underline{Def.2} O functie $f : D \subseteq \mathbb{R} \to \mathbb{R}^{k}$ este derivabilă. \\
+		\underline{Obs.} $f : D \subseteq \mathbb{R} \to \mathbb{R}^{k}, k \geq 2$, este derivabilă în $x_{0} \in D \cap D' \Leftrightarrow$ \\
+		$f_{1}, f_{2}, ..., f_{k} : D \subseteq \mathbb{R} \to \mathbb{R}$ sunt derivabile în $x_{0} \in D \cap D'$. \\
+		În plus, $f'(x_{0}) = (f_{1}'(x_{0}), ..., f_{k}'(x_{0}))$. \\
+		\underline{Def.3} Functia $f : D \subseteq \mathbb{R} \to \mathbb{R}^{k}$ este derivabilă la \\
+		stânga în $x_{0} \in \overset{\circ}{D}$ dacă $\exists \underset{x < x_{0}}{\underset{x \to x_{0}}{lim}}\frac{1}{x - x_{0}} \cdot (f(x) - f(x_{0})) \in \mathbb{R}^{k}$.\\
+		Functia $f : D \subseteq \mathbb{R} \to \mathbb{R}^{k}$ este derivabilă la dreapta în $x_{0} \in \overset{\circ}{D}$ dacă $\exists \underset{x > x_{0}}{\underset{x \to x_{0}}{lim}}\frac{1}{x - x_{0}} \cdot (f(x) - f(x_{0})) \in \mathbb{R}^{k}$ \\
+		\underline{Notatii} $\underset{\underset{x < x_{0}}{x \in x_{0}}}{lim}\frac{1}{x - x_{0}} \cdot (f(x) - f(x_{0})) \overset{not}{=} f_{s}'(x_{0})$ \\
+		\underline{Notatii} $\underset{\underset{x > x_{0}}{x \in x_{0}}}{lim}\frac{1}{x - x_{0}} \cdot (f(x) - f(x_{0})) \overset{not}{=} f_{d}'(x_{0})$ \\
+		\underline{Obs} f este derivabilă în $x_{0} \in \overset{\circ}{D} \Leftrightarrow \exists f_{s}'(x_{0}) \in \mathbb{R}^{k}, \exists f_{d}'(x_{0}) \in \mathbb{R}^{k}$ si $f_{s}'(x_{0}) = f_{d}'(x_{0})$ \\
+	}
+\end{document}

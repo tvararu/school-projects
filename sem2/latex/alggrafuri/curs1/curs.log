@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.12.5)  4 FEB 2013 03:34
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.12.5)  19 FEB 2013 10:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**foaie.tex
-(./foaie.tex
+**curs.tex
+(./curs.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ba
 sque, danish, dutch, ukenglish, usenglishmax, finnish, french, german, ngerman,
@@ -12,8 +12,8 @@ sque, danish, dutch, ukenglish, usenglishmax, finnish, french, german, ngerman,
  swedish, loaded.
 (/usr/local/texlive/2012basic/texmf-dist/tex/latex/extsizes/extarticle.cls
 Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
-(/usr/local/texlive/2012basic/texmf-dist/tex/latex/extsizes/size8.clo
-File: size8.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
+(/usr/local/texlive/2012basic/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 (/usr/local/texlive/2012basic/texmf-dist/tex/latex/base/exscale.sty
 Package: exscale 2007/10/29 v2.1h Standard LaTeX package exscale
@@ -378,8 +378,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen129
 \Gm@dimlist=\toks22
 )
-(./foaie.aux)
-\openout1 = `foaie.aux'.
+(./curs.aux)
+\openout1 = `curs.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
@@ -481,6 +481,10 @@ e
 )
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
+
+Package geometry Warning: The marginal notes overrun the paper.
+     Add 31.23772pt and more to the right margin.
+
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
 * paper: a4paper
@@ -498,59 +502,56 @@ e
 * \topmargin=-86.5077pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=9.0pt
+* \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=4.0pt
+* \marginparwidth=44.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=7.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
-* \@twocolumntrue
+* \@twocolumnfalse
 * \@twosidefalse
 * \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 12.
+LaTeX Font Info:    Try loading font information for U+msa on input line 10.
 (/usr/local/texlive/2012basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 12.
+LaTeX Font Info:    Try loading font information for U+msb on input line 10.
 
 (/usr/local/texlive/2012basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 10--13
 
- [1
+ []
+
+[1
 
 {/usr/local/texlive/2012basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./foaie.aux) ) 
+(./curs.aux) ) 
 Here is how much of TeX's memory you used:
- 3383 strings out of 494578
- 49677 string characters out of 3168574
- 144907 words of memory out of 3000000
- 6550 multiletter control sequences out of 15000+200000
- 7385 words of font info for 29 fonts, out of 3000000 for 9000
+ 3384 strings out of 494578
+ 49697 string characters out of 3168574
+ 111957 words of memory out of 3000000
+ 6551 multiletter control sequences out of 15000+200000
+ 8285 words of font info for 32 fonts, out of 3000000 for 9000
  314 hyphenation exceptions out of 8191
- 51i,14n,27p,324b,112s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012basic/texmf-dist/fonts/type1/public/amsf
-onts/cmextra/cmex8.pfb></usr/local/texlive/2012basic/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2012basic/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2012basic/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2012basic/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2012basic/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012basic/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2012basic/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2012basic/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2012basic/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on foaie.pdf (1 page, 108654 bytes).
+ 51i,4n,27p,296b,111s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2012basic/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi12.pfb></usr/local/texlive/2012basic/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr12.pfb></usr/local/texlive/2012basic/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012basic/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012basic/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb>
+Output written on curs.pdf (1 page, 39476 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 28 PDF objects out of 1000 (max. 8388607)
+ 19 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

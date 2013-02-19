@@ -1,0 +1,129 @@
+\documentclass[12pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools} % matrices, cases
+\usepackage{amsfonts} % natural/whole/real/etc. number sets
+\usepackage{geometry}
+\geometry{verbose,a4paper,tmargin=0.8cm,bmargin=0.8cm,lmargin=0.8cm,rmargin=0.8cm}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+	\huge \underline{Functii derivabile} \\
+	{\large
+		1) Folosind principiul contractiilor, deduceti că ecuatia $10x - 1 = sin(x)$ are solutie unică. Aproximati solutia cu eroare de $10^{-2}$. \\
+		Principiul contractiilor ajută la rezolvarea ecuatiilor algebrice de forma $f(x) = x$. \\
+		Dacă forma ecuatiei nu convine, aceasta se transformă la forma $f(x) = x$. \\
+		$10x - 1 = sin(x) \Rightarrow 10x = sin(x) + 1 \Rightarrow x = \frac{sin(x) + 1}{10} = f(x)$ \\
+		\underline{Etapa I} $f : \mathbb{R} \to \mathbb{R}$ \\
+		$\mathbb{R}$ spatiu metric complet. \\
+		$D = \mathbb{R}$ - multime inchisă. \\
+		\underline{Etapa II} f contractie? \\
+		f e derivabilă pe $\mathbb{R}$ \\
+		$f'(x) = (\frac{(sin(x) + 1)}{x_{0}})' = \frac{1}{10}(sin(x) + 1)' = \frac{1}{10}cos(x), \forall x \in \mathbb{R}$ \\
+		$\underset{x \in \mathbb{R}}{sup}|f'(x)| = \underset{x \in \mathbb{R}}{sup}|\frac{cos(x)}{10}| = \frac{1}{10} \in (0, 1) \Rightarrow$ f e contractie, unde $c = \frac{1}{10} \Rightarrow \exists ! u \in \mathbb{R}$ a.î. $f(u) = u \Rightarrow$ ec. $10x - 1 = sin(x)$ are o singura solutie notata cu u. \\
+		Construim $(x_{n})_{n \in \mathbb{N}}$ \\
+		$x_{n + 1} = f(x_{n}), \forall n \in \mathbb{N}$ \\
+		$x_{0} = a = 0$ \\
+		$\underset{n \to 0}{lim}x_{n} = u$ \\
+		$d(x_{n}, u) \leq \frac{C^{n}}{1 - C} \cdot d(x_{1}, x_{n}), \forall n \in \mathbb{N}^{*}$ \\
+		$x_{1} = f(x_{0}) = f(0) = \frac{1}{10}$ \\
+		$|x_{n} - u| \leq \frac{(\frac{1}{10})^{n}}{1 - \frac{1}{10}} \cdot |\frac{1}{10} - 0|, \forall n \in \mathbb{N}^{*}$ \\
+		$|x_{n} - u| \leq \frac{(\frac{1}{10})^{n}}{\frac{9}{10}} = (\frac{1}{10})^{n} \cdot \frac{10}{9} \cdot \frac{1}{10} = (\frac{1}{10})^{n} \cdot \frac{1}{9}, \forall n \in \mathbb{N}^{*}$ \\
+		Se rezolvă inecuatia $|x_{n} - u| \leq (\frac{1}{10})^{n} \cdot \frac{1}{9} < 10^{-2}$ cautând necunoscuta $n \in \mathbb{N}^{*}$ \\
+		$\frac{1}{10^{n}} \cdot \frac{1}{9} \leq \frac{1}{10^{2}} \Rightarrow 10^{n} \cdot 9 > 10^{2} \Rightarrow n \geq 2$. Concluzie: $x_{2} \approx u$ cu eroare de $10^{-2}$ \\
+		$x_{2} = f(\frac{1}{10}) = \frac{sin(\frac{1}{10})z`' + 1}{10} = \frac{sin(0.1) + 1}{10} = 0.1 \cdot (sin(0.1) + 1) = = 0.1 \cdot 1.0017453... = 0.10017453$ \\
+		$u \approx 0.10$ \\
+		% \pagebreak
+		
+		2) Studiati derivabilitatea functiei $f : \mathbb{R} \to \mathbb{R} , f(x) = 
+		\left\{\begin{matrix}
+		-x, \quad x < 0\\ 
+		x^{2} e^{x}, \quad x \geq 0
+		\end{matrix}\right.
+		$. Calculati $f'(x)$. \\
+		f e continuă pe $\mathbb{R}^{*}$. \\
+		0 e punct interior pentru $\mathbb{R}$. \\
+		$
+		\left.\begin{matrix}
+		\underset{\underset{x \to 0}{x < 0}}{lim}f(x) = \underset{\underset{x \to 0}{x < 0}}{lim}-x = 0\\ 
+		\underset{\underset{x \to 0}{x > 0}}{lim}f(x) = \underset{\underset{x \to 0}{x > 0}}{lim}x^{2} e^{x} = 0
+		\end{matrix}\right\} \Rightarrow $ f continuă în 0 $\Rightarrow$ si pe $\mathbb{R}$ \\
+		$f(0) = 0$ \\
+		f derivabila pe $\mathbb{R}^{*}$ \\
+		0 e punct interior. \\
+		$\underset{\underset{x \to 0}{x < 0}}{lim}\frac{f(x) - f(0)}{x - 0} = \underset{\underset{x \to 0}{x < 0}}{lim}\frac{-x - 0}{x - 0} = -1 \in \mathbb{R} \Rightarrow \exists f_{s}'(0) = -1$ \\
+		$\underset{\underset{x \to 0}{x > 0}}{lim}\frac{f(x) - f(0)}{x - 0} = \underset{\underset{x \to 0}{x > 0}}{lim}\frac{x^{2}e^{x} - 0}{x - 0} = \underset{\underset{x \to 0}{x > 0}}{lim}\frac{x^{2}e^{x}}{x} = \underset{\underset{x \to 0}{x > 0}}{lim}(xe^{x}) = 0 \Rightarrow \exists f_{d}'(0) = 0$ \\
+		$\Rightarrow$ f nu e derivabilă în 0. \\
+		$f'(x) = 
+		\left\{\begin{matrix}
+		-1, \quad\quad\quad x < 0\\ 
+		2xe^{x} + xe^{x}, \quad x > 0
+		\end{matrix}\right.
+		$ \\
+		\\
+		3) Gasiti punctele de extrem local ale functiei de la exercitiul 2. \\
+		\underline{Etapa I} Se verifică continuitatea functiei \\
+		\underline{Etapa II} Se verifică derivabilitatea functiei \\
+		$f'(x) = 0 \Rightarrow \left\{\begin{matrix}
+		-1 = 0, \quad\quad\quad\quad x < 0, \quad \emptyset \\ 
+		2xe^{x} + xe^{x} = 0, \quad x > 0, \quad \emptyset
+		\end{matrix}\right.
+		$ \\
+		$xe^{x}(2 + x) = 0$ \\
+		$\not{x_{1} = 0}, \not{x_{2} = -2}$ \\
+		\begin{tabular}{ l | p{5.5cm} }
+			x & $-\infty \quad\quad\quad 0 \quad\quad\quad +\infty$ \\ \hline
+			f(x) & $\infty \quad\searrow\quad 0 \quad\nearrow\quad \infty$ \\ \hline
+			f'(x) & $- - - - _{-1}|^{0} + + + + +$ \\
+		\end{tabular}
+		\\
+		4) Studiati derivabilitatea functiei $f : \mathbb{R}^{*} \to \mathbb{R}^{2}$, $f(x) = (\frac{sin(x)}{x}){|x - 1|}$ \\
+		$f = (f_{1}, f_{2})$, $f_{1}, f_{2} : \mathbb{R}^{*} \to \mathbb{R}$ \\
+		$f_{1}(x) = \frac{sin(x)}{x}$ \\
+		$f_{2}(x) = |x - 1| = 
+		\left\{\begin{matrix}
+		x - 1, \quad x \geq 1 \\ 
+		-x + 1, \quad x < 1
+		\end{matrix}\right.
+		$ \\
+		$f_{1}$ derivabila pe $\mathbb{R}^{*}$, $f_{2}$ continua pe $\mathbb{R}^{*} \backslash {1}$ \\
+		$\left.\begin{matrix}
+		f_{s}(1) = \lim_{\underset{x < 1}{x \to 1}}(-x + 1) = 0\\ 
+		f_{d}(1) = \lim_{\underset{x > 1}{x \to 1}}(x - 1) = 0\\
+		f_{2}(1) = 0
+		\end{matrix}\right\} \Rightarrow $ f continuă în 0 $\Rightarrow$ $f_{2}$ continuă pe $\mathbb{R}^{*}$ \\
+		$f_{2}$ derivabilă pe $\mathbb{R}^{*} \backslash {1}$ \\
+		$1 \in \mathbb{R}^{*}$ \\
+		$\lim_{\underset{x < 1}{x \to 1}}\frac{f_{2}(x) - f_{2}(1)}{x - 1} = \lim_{\underset{x < 1}{x \to 1}}\frac{-x + 1}{x - 1} = -1$ \\
+		$\Rightarrow$ f este derivabilă pe $\mathbb{R}^{*} \cap (\mathbb{R}^{*} \backslash \{ 1 \}) = \mathbb{R}^{*} \backslash {1}$ \\
+		5) \\
+		$f_{1}(x) = \frac{sin(x)}{x}$ \\
+		$f_{2}(x) = |x - 1| = 
+		\left\{\begin{matrix}
+		x - 1, \quad x \geq 1 \\ 
+		-x + 1, \quad x < 1
+		\end{matrix}\right.
+		$ \\
+		$f_{1}(x) = (\frac{sin(x)}{x})' = \frac{cos(x) \cdot x - sin(x)}{x^{2}}, \forall x \in \mathbb{R}^{*} \backslash {1}$ \\
+		$f_{2}(x) = |x - 1| = 
+		\left\{\begin{matrix}
+		1, \quad x > 1 \\ 
+		-1, \quad x < 1
+		\end{matrix}\right. \forall x \in \mathbb{R}^{*} \backslash {1}$ \\
+		$f'(x) = |x - 1| = 
+		\left\{\begin{matrix}
+		(\frac{xcosx - sinx}{x^{2}}), \quad x > 1 \\ 
+		(\frac{xcosx - sinx}{x^{2}}), \quad x < 1
+		\end{matrix}\right. \forall x \in \mathbb{R}^{*} \backslash {1}$ \\
+		\\
+		Temă: Fie $f : \mathbb{R} \to \mathbb{R}, f(x) = 
+		\left\{\begin{matrix}
+		x^{2}cos(\frac{1}{x^{2}}), \quad x \neq 0 \\ 
+		0, \quad\quad\quad\quad x = 0
+		\end{matrix}\right.$\\
+		a) Studiati derivabilitatea functiei f. \\
+		b) Studiati continuitatea functiei f. \\
+		c) Ce concluzie se deduce din primele doua puncte? \\
+	}
+	
+	
+\end{document}
