@@ -1,0 +1,2 @@
+1) Se da o matrice de adiacenta si sa determinam gradurile nodurilor
+2) Se dau gradurile nodurilor si sa se genereze matricea de adiacenta
