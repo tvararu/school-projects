@@ -1,0 +1,80 @@
+\documentclass[12pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools} % matrices, cases
+\usepackage{amsfonts} % natural/whole/real/etc. number sets
+\usepackage{geometry}
+\usepackage{tikz}
+\geometry{verbose,a4paper,tmargin=0.8cm,bmargin=0.8cm,lmargin=0.8cm,rmargin=0.8cm}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+	% \huge \underline{Functii derivabile} \\
+	{\large
+		$V = \{ x_{1}, ..., x_{n} \}$ \\
+		$G(V) = \{ G = (V, E) / E \subseteq V^{(2)} \}$ \\
+		$|G(V)| = 2^{\binom{n}{2}} = 2^{\frac{n(n - 1)}{2}}$ \\
+		\\
+		$G(V), t^{*}, \underset{\sim}{t^{*}}$ relatie de echivalentă \\
+		$G_{1} \overset{t^{*}}{\sim} G_{2}$ \\
+		\\
+		$(T_{1}) V = \{ x_{1}, ..., x_{n} \}, G(V), G_{1}, G_{2} \in G(V)$ \\
+		\\
+		$[d_{G_{1}}(x) = d_{G_{2}}(x), \forall x \in V] \Leftrightarrow G_{1} \overset{t^{*}}{\sim} G_{2}$ \\
+		\\
+		\underline{Dem:} \\
+		$``\Leftarrow''$ evident \\
+		$``\Rightarrow''$ \\
+		\underline{Lema 2} \\
+		Fie $V = \{ x_{1}, ..., x_{n} \}, G(V), G \in G(V)$ \\
+		$d_{i} := d_{G}(x_{i}), i \leq i \leq n$ \\
+		$d_{1} \geq ... \geq d_{n}$ \\
+		$\exists G' \in G(V)$ cu următoarele proprietăti: \\
+		$G' \overset{t^{*}}{\sim} G \quad (\Rightarrow d_{G'}(x) = d_{G}(x), \forall x \in V)$ \\
+		$x_{1}x_{2}, x_{1}x_{3}, ..., x_{1}x_{d_{1} + 1} \in E'$ \\
+		\\
+		\underline{Dem Lema 2} \\
+		\underline{Cazul 1} $x_{1}x_{2}, ..., x_{1}x_{d_{1} + 1} \in E \Rightarrow G' = G$ \\
+		\underline{Cazul 2} $\exists i \in \{ 2, ..., d_{1} + 1 \} cu x_{1}x_{2}, x_{1}x_{3}, ...,  
+		\left.\begin{matrix}
+		x_{1}x_{i - 1} \in E \\
+		x_{1}x_{i} \notin E
+		\end{matrix}\right\} \Rightarrow \exists j, i < j \leq n : x_{i}, x_{j} \in E$ \\
+		$G_{1} = G - x_{i}x_{k} - x_{1}x_{j} + x_{1}x_{i} + x_{j}x_{k}$ \\
+		$G \overset{t^{*}}{\sim} G_{1} \overset{t^{*}}{\sim} G_{2} \overset{t^{*}}{\sim} ... \overset{t^{*}}{\sim} G_{p} = G'$ \\
+		
+		\underline{Lema 3} \\
+		$V = \{ x_{1}, ..., x_{n} \}$ \\
+		$G \in G(V)$ \\
+		$x \in V$ \\
+		$\exists G' \in G(V) : G' \overset{t^{*}}{\sim} G$ \\
+		x este adiacent în G' cu d(x) vârfuri cu grade maxime diferite de d. \\
+		\\
+		\underline{T4 (Havel-Hakini)} \\
+		$s_{0} = (d_{1} \geq ... \geq d_{n}) \in N^{*}_{\geq 0}, d_{1} \leq n - 1$ \\
+		$s_{0} multiset grafic \Leftrightarrow s_{0}^{1}$ (este multiset grafic a unui graf simplu). \\
+		unde: $\underset{d_{1}}{\underbrace{s_{0}^{1} = d_{2} - 1, d_{3} - 1, ..., d_{1+i} - 1}}, \underset{n - 1 - d_{1}}{\underbrace{d_{1 + 2}, ..., d_{n}}}$ \\
+		\underline{Dem}: $``\Rightarrow''$ este multiset grafic atunci \\
+		$\exists G'$ cu $s(G') = s_{0}^{1}$ \\
+		$V' = \{ x_{1}, ..., x_{n} \}$ a.î. $d_{i}(x_{i}) = \left\{\begin{matrix}
+		d_{i - 1}, 2 \leq i \leq d_{1} + 1 \\ 
+		d_{i}, d_{1} + 2 \leq i \leq n
+		\end{matrix}\right.$
+		$G = G^{1} + [x_{1}x_{2}] + [x_{1}x_{3}] + ... + [x_{1}x_{n}]$ \\
+		G graf simplu $s(G) = s_{0} \Rightarrow s_{0}$ multiset grafic. \\
+		$``\Rightarrow'' s_{0}$ multiset grafic $\Rightarrow \exists G, s(G) = s_{0}$ \\
+		Fie ...
+		
+		% \begin{tikzpicture}
+		% 	[scale=.8,auto=left,every node/.style={circle,fill=gray!20}]
+		% 	\node (n6) at (1,10) {6};
+		% 	\node (n4) at (4,8)  {4};
+		% 	\node (n5) at (8,9)  {5};
+		% 	\node (n1) at (11,8) {1};
+		% 	\node (n2) at (9,6)  {2};
+		% 	\node (n3) at (5,5)  {3};
+		% 	
+		% 	\foreach \from/\to in {n6/n4,n4/n5,n5/n1,n1/n2,n2/n5,n2/n3,n3/n4}
+		% 		\draw (\from) -- (\to);
+		% \end{tikzpicture}
+	}
+\end{document}

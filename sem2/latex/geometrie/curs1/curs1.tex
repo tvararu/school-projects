@@ -1,0 +1,63 @@
+\documentclass[12pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools} % matrices, cases
+\usepackage{amsfonts} % natural/whole/real/etc. number sets
+\usepackage{geometry}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\geometry{verbose,a4paper,tmargin=0.8cm,bmargin=0.8cm,lmargin=0.8cm,rmargin=0.8cm}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+	{\large
+		\underline{Definitie} O functie $f : \mathbb{R}^{2} \to \mathbb{R}^{2}$ se numeste izometrie dacă pentru orice $x = (x^{1}, x^{2}), y = (y^{1}, y^{2}) \in \mathbb{R}^{2}$ \\
+		$d(x, y) = d(f(x), f(y))$ \\
+		$[ d((x^{1}, x^{2}), (y^{1}, y^{2})) \overset{def}{=} \sqrt{ (x^{1} - y^{1})^{2} + (x^{2} - y^{2})^{2}} ]$ \\
+		\\
+		Ex: 1. Functia identică \\
+		2. Functia $f : \mathbb{R}^{2} \to \mathbb{R}^{2}, \forall x = (x^{1}, x^{2}) \in \mathbb{R}^{2}$ \\
+		$f(x) = (x^{2}, x^{1})$ \\
+		Fie $x, y \in \mathbb{R}^{2}$ unde 
+		$\begin{matrix}
+		x = (x^{1}, y^{2}) \\
+		y = (y^{1}, x^{2})
+		\end{matrix}$ \\
+		$d(f(x), f(y)) = \sqrt{ (x^{2} - y^{2})^{2} + (x^{1} - y^{1})^{2} }$ \\
+		\begin{tikzpicture}
+			\draw[->] (-1,0) -- (5,0) node[right] {$x_{1}$}; 
+			\draw[->] (0,-1) -- (0,5) node[above] {$x_{2}$};
+			\draw[dashed] (0,0) -- +(45:7) node[right] {$d$};
+			\draw[dashed] (1,0) -- (1,2);
+			\draw[dashed] (0,2) -- (1,2);
+			\draw[dashed] (0,1) -- (3,1);
+			\draw[dashed] (3,0) -- (3,1);
+		\end{tikzpicture} \\
+		\\
+		$d : x^{2} - y^{1} = 0$ \\
+		$f = \underset{(simetric)}{Sim} d$ \\
+		3. Functia $f : \mathbb{R}^{2} \to \mathbb{R}^{2}$
+		$\begin{matrix}
+		\forall x = (x^{1}, x^{2}) \\
+		f(x) = (x^{1} + \alpha, x^{2} + \beta)
+		\end{matrix}$ \\
+		$f = T_{(\alpha, \beta)}$ \\
+		$f(x) = x + (\alpha, \beta)$ \\
+		$\alpha = (1, 1)$ \\
+		\begin{tikzpicture}
+			\draw[->] (-1.5,0) -- (5.5,0) node[right] {$x_{1}$}; 
+			\draw[->] (0,-1.5) -- (0,5.5) node[above] {$x_{2}$};
+			
+			\draw (0,0) node[below left] {$0$};
+			
+			\draw (4, 0) node[above right] {$(4, 0)$};
+			\draw (0, 2) node[above right] {$(0, 2)$};
+			\foreach \x in {-1, 1, 2, 3, 4, 5} {%
+				\draw ($(\x,0) + (0,-2pt)$) -- ($(\x,0) + (0,2pt)$);
+			}
+			\foreach \x in {-1, 1, 2, 3, 4, 5} {%
+				\draw ($(0,\x) + (-2pt,0)$) -- ($(0,\x) + (2pt,0)$);
+			}
+			\draw (-4,4) -- (0,2) -- (4,0) -- (8,-2);
+		\end{tikzpicture}
+	}
+\end{document}
