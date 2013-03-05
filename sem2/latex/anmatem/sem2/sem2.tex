@@ -1,0 +1,47 @@
+\documentclass[12pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools} % matrices, cases
+\usepackage{amsfonts} % natural/whole/real/etc. number sets
+\usepackage{geometry}
+\geometry{verbose,a4paper,tmargin=0.8cm,bmargin=0.8cm,lmargin=0.8cm,rmargin=0.8cm}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+	\huge \underline{Functii derivabile de ordin superior} \\
+	{\large
+    1) Determinati parametrul real $a \in \mathbb{R}_{+}^{*}$, stiind că \\
+    $6^{x} + a^{x} \geq 4^{x} + 3^{x}$, $\forall x \in \mathbb{R}$ \\
+    Rezolvare: \\
+    $\underset{f(x)}{\underbrace{6^{x} + a^{x} - 4^{x} - 3^{x}}} \geq 0$, $\forall x \in \mathbb{R}$ \\
+    $f : \mathbb{R} \to \mathbb{R}$, $f(x) = 6^{x} + a^{x} - 4^{x} - 3^{x}$ \\
+    Căutăm $x_{0} \in \mathbb{R}$ a.î. $f(x_{0}) = 0$ \\
+    Obs. că $f(0) = 0$ \\
+    Obs. că $f(x) = f(0), \forall x \in \mathbb{R} \Rightarrow \underset{(1)}{\underline{x_{0} = 0}}$ punct de minim global pentru f. \\
+    f derivabilă pe $\mathbb{R} \Rightarrow$ f derivabilă în $x_{0}$ (2) \\
+    Obs. că $\underset{3}{\underline{x_{0} \in \overset{\circ}{\mathbb{R}}}}$ \\
+    Din (1), (2), (3) $\overset{Th. Fermat}{\Rightarrow}$ $f'(x_{0}) = 0$ \\
+    $f'(x_{0}) = (6^{x} + a^{x} - 4^{x} - 3^{x})' = 6^{x} ln6 + a^{x} lna - 4^{x} ln4 - 3^{x} ln3$ \\
+    $ln\frac{a}{2} = 0 \Rightarrow a = 2 \in \mathbb{R}_{+}^{*}$ \\
+    \\
+    2) Demonstrati urmatoarea inegalitate: \\
+    $\sqrt[n]{\frac{x + x}{2}} \geq \frac{\sqrt[n]{x} + \sqrt[n]{y}}{2}, \forall x, y \geq 0, \forall n \in \mathbb{N}^{*}$ \\
+    1) Obs. că pentru $n \geq 1$ inegalitatea e adevarată \\
+    2) Vom demonstra inegalitatea pentru $n \geq 2$ \\
+    2.1.) Obs. că inegaliteatea este adevărată dacă $n = 0$ sau $y = 0$ \\
+    2.2.) Rămâne să demonstrăm inegalitatea pentru $x, y > 0$ \\
+    Alegem functia $f : (0, +\infty) \to \mathbb{R}$, $f(t) = \sqrt[n]{t}$ \\
+    f derivabilă pe $(0, \infty)$ \\
+    $f'(t) = (t^{\frac{1}{n}}) = \frac{1}{n} \cdot t^{\frac{1}{n} - 1}, \forall t \in (0, \infty)$ \\
+    $f'$ derivabilă pe $(0, \infty) \Rightarrow$ f e derivabilă de 2 ori pe $(0, \infty)$ \\
+    $f(t)$ indefinit derivabilă \\
+    $f''(t) = (\frac{1}{n} \cdot t^{\frac{1}{n} - 1})' = \underset{+}{\frac{1}{n}}\underset{-}{(\frac{1}{n} - 1)}\underset{+}{t^{\frac{1}{n}} - 2}, \forall t \in \mathbb{R}_{+}^{*}$ \\
+    $f''(t) < 0, \forall t \in \mathbb{R}_{+}^{*} \Rightarrow f$ e concavă \\
+    $\overset{def}{\Rightarrow} f(tx + (1 - t)y) \geq tf(x) + (1 - t)f(y)$ \\
+    $\forall x, y \in \mathbb{R}_{+}^{*}, \forall t \in [0, 1]$ \\
+    $\Rightarrow \sqrt[n]{tx + (1 - t)y} \geq \sqrt[n]{x} + (1 - t)\sqrt[n]{y}$, $\forall x, y \in \mathbb{R}_{+}^{*}$, $\forall t \in [0, 1]$ \\
+    $\sqrt[n]{\frac{x + y}{2}} \geq \frac{\sqrt[n]{x} + \sqrt[n]{y}}{2}$ \\
+    \\
+	}
+	
+	
+\end{document}

@@ -75,7 +75,7 @@ int execute (set<int> &state, set<int> &alphabet, vector< vector<int> > foo, con
 
 int main (int argc, char const *argv[])
 {
-  ifstream in ("input.in");
+  ifstream in ("input1.in");
   
   int n;
   
@@ -115,6 +115,8 @@ int main (int argc, char const *argv[])
   cout << "Word: ";
   show_vector(word, cout);
   cout << '\n';
+  
+  in.close();
   
   cout << "Processing...\n";
   
