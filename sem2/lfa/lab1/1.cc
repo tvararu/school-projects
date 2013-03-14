@@ -44,7 +44,7 @@ void show_matrix (vector< vector<int> > &v, const int &m, const int &n, ostream 
     for (int j = 0; j < n; j++) {
       out << v[i][j] << ' ';
     }
-    cout << '\n';
+    out << '\n';
   }
 }
 
@@ -53,7 +53,7 @@ int execute (set<int> &state, set<int> &alphabet, vector< vector<int> > foo, con
   unsigned st = start_state;
   for (unsigned i = 0; i < word.size(); i++) {
     if (alphabet.find(word[i]) != alphabet.end()) {
-      cout << word[i] << " is a part of the alphabet. ";
+      cout << word[i] << " is part of the alphabet. ";
     } else {
       invalid = true;
       cout << word[i] << " is an invalid character, breaking.\n";
@@ -109,24 +109,31 @@ int main (int argc, char const *argv[])
   cout << "Final state set: ";
   show_set(final_states, cout);
   
-  in >> n;
-  vector<int> word(n);
-  read_vector(word, n, in);
-  cout << "Word: ";
-  show_vector(word, cout);
-  cout << '\n';
+  vector< vector<int> > words;
+  while (in >> n) {
+    vector<int> word(n);
+    read_vector(word, n, in);
+    cout << "Word: ";
+    show_vector(word, cout);
+    words.push_back(word);
+  }
   
   in.close();
   
-  cout << "Processing...\n";
+  cout << "\nProcessing...\n";
   
-  int result = execute(state, alphabet, foo, start_state, final_states, word);
-  // returns -1 if word is invalid, final state otherwise
-  
-  if (final_states.find(result) != final_states.end()) {
-    cout << "Word is valid.\n";
-  } else {
-    cout << "Word is invalid.\n";
+  for (unsigned i = 0; i < words.size(); i++) {
+    vector<int> &word = words[i];
+    
+    int result = execute(state, alphabet, foo, start_state, final_states, word);
+    
+    if (final_states.find(result) != final_states.end()) {
+      cout << "Final state: " << result << ". Valid: ";
+    } else {
+      cout << "Final state: " << result << ". Invalid: ";
+    }
+    show_vector(word, cout);
+    cout << '\n';
   }
   
   return 0;
