@@ -1,0 +1,13 @@
+push a
+pop
+pop
+push b
+push b
+push a
+top
+pop
+push c
+show
+top
+pop
+show
