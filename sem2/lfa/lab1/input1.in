@@ -1,19 +1,47 @@
 4 
 0 1 2 3
+
 2
 0 1
+
 4 2
 0 1
 2 1
 0 3
 3 3
+
 0
+
 1
 3
+
 4
 0 1 0 1
+
 2
 1 1
+
 4
 0 1 0 0
+
 0
+
+----- input file explanation -----
+4           // number of states
+0 1 2 3     // state set
+
+2           // number of letters in alphabet
+0 1         // letters in alphabet
+
+4 2         // lines / columns for adjacency matrix
+x y ...     // actual matrix
+
+0           // start state
+
+1           // number of final states
+3           // final states
+
+x           // number of letters in word
+a b c d ... // actual word
+
+0           // null word

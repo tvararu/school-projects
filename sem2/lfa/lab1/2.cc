@@ -26,6 +26,11 @@ void read_vector (vector<int> &v, const int &n, istream &in) {
 }
 
 void show_vector (vector<int> &v, ostream &out) {
+  if (v.size() == 0) {
+    out << "(null word)\n";
+    return;
+  }
+  
   for (typeof(v.begin()) it = v.begin(); it != v.end(); it++) {
     out << *it << ' ';
   }
@@ -156,9 +161,9 @@ int main (int argc, char const *argv[])
     }
     
     if (valid) {
-      cout << "Valid: ";
+      cout << "Possible end states include a final state. Word is valid: ";
     } else {
-      cout << "Could not reach a final state. Invalid: ";
+      cout << "Could not reach a final state. Word is invalid: ";
     }
     show_vector(word, cout);
     cout << '\n';
