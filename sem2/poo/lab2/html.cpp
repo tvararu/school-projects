@@ -24,12 +24,12 @@ class Tag {
 private:
   string name;
   vector<Property> prop;
+  bool plain;
+
+  Tag set_name (const string &name) { this->name = name; return *this; }
   
 public:
-  Tag (string name = "div") {
-    assert (name != "");
-    this->name = name;
-  }
+  Tag (const string &name, bool plain = 0) : name(name), plain(plain) {}
   
   Tag& attr (const string &name, string value = "") {
     assert (name != "");
@@ -40,7 +40,13 @@ public:
     return *this;
   }
   
+  string get_name () { return this->name; }
+  
+  bool is_plain () { return plain; }
+  
   string open_tag () {
+    if (is_plain()) return name;
+    
     string str = "<" + name;
     for (typeof(prop.begin()) it = prop.begin(); it != prop.end(); it++) {
       str += " " + it->to_s();
@@ -49,10 +55,14 @@ public:
     return str + ">";
   }
   
-  string close_tag () { return "</" + name + ">"; }
+  string close_tag () { 
+    if (is_plain()) return "";
+    
+    return "</" + name + ">";
+  }
   
-  friend ostream& operator<< (ostream &out, const Tag &x) {
-    out << x.name;
+  friend ostream& operator<< (ostream &out, Tag x) {
+    out << x.get_name();
     return out;
   }
 };
