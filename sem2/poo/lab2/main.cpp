@@ -16,7 +16,6 @@ int main (int argc, char const *argv[])
   copac += Tree(Tag("p"));
   copac += Tree(Tag("p"));
   copac += Tree(Tag("p"));
-  copac += copac;
   copac += Tree(Tag("p"));
   
   // cout << Tag("span").attr("src", "google.com").open_tag();
