@@ -24,7 +24,7 @@ int main (int argc, char const *argv[])
 {
 	srand(time(0));
   
-  int n = 6;
+  int n = 10;
   
   vector< vector<int> > matAdi(n, vector<int>(n));
   
