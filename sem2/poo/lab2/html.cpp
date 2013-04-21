@@ -4,9 +4,9 @@ class Property {
 private:
   string name, value;
   
-  Property (string name = "class", string value = "") {
-    this->name = name;
-    this->value = value;
+  Property (string _name = "class", string _value = "") {
+    name = _name;
+    value = _value;
   }
   
   string to_s () {
@@ -26,7 +26,7 @@ private:
   vector<Property> prop;
   bool plain;
 
-  Tag set_name (const string &name) { this->name = name; return *this; }
+  Tag set_name (const string &val) { name = val; return *this; }
   
 public:
   Tag () : name("div"), plain(0) {}
@@ -41,7 +41,7 @@ public:
     return *this;
   }
   
-  string get_name () { return this->name; }
+  string get_name () { return name; }
   
   bool is_plain () { return plain; }
   

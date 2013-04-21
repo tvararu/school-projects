@@ -6,7 +6,7 @@ class Node {
 private:
   Tag data; // aici ar fi mers de minune un template
   
-  Node& set_data (const Tag &data) { this->data = data; return *this; }
+  Node& set_data (const Tag &val) { data = val; return *this; }
   
 public:
   Node () {}
@@ -51,7 +51,7 @@ private:
   
   string indent () {
     string ind = "";
-    int depth = this->get_depth();
+    int depth = get_depth();
     
     for (int i = 0; i < depth; i++) {
       ind += "  ";
@@ -126,13 +126,13 @@ public:
     
     if (tagName[0] != '/') {
       cout << "opening tag\n";
-      Tree deeper;
+      Tree& deeper = * new Tree;
       in >> deeper;
-      if (deeper.get_head().get_data().get_name() != '/' + tagName) {
-        cout << deeper.get_head().get_data().get_name() << " different from " << tagName << endl;
-        // x += deeper;
-      } else {
+      if (deeper.get_head().get_data().get_name() == '/' + tagName) {
         cout << "finished:\n" << x;
+      } else {
+        cout << deeper.get_head().get_data().get_name() << " different from " << tagName << endl;
+        x += deeper;
       }
     } else { 
       cout << "closing tag\n";
@@ -171,14 +171,14 @@ public:
   
   string dfs () {
     string result = "";
-    result += this->get_head().get_data().get_name() + " ";
+    result += get_head().get_data().get_name() + " ";
     
-    if (this->get_child()) {
-      result += this->get_child()->dfs();
+    if (get_child()) {
+      result += get_child()->dfs();
     }
     
-    if (this->get_next()) {
-      Tree *conductor = this->get_next();
+    if (get_next()) {
+      Tree *conductor = get_next();
       result += conductor->dfs();
       while (conductor->get_next()) {
         conductor = conductor->get_next();
@@ -191,13 +191,13 @@ public:
   
   int get_height (int depth = 1) {
     
-    if (this->get_child()) {
-      int result = this->get_child()->get_height(depth + 1);
+    if (get_child()) {
+      int result = get_child()->get_height(depth + 1);
       if (depth < result) depth = result;
     }
     
-    if (this->get_next()) {
-      Tree *conductor = this->get_next();
+    if (get_next()) {
+      Tree *conductor = get_next();
       int result = conductor->get_height(depth);
       if (depth < result) depth = result;
       while (conductor->get_next()) {
@@ -212,15 +212,15 @@ public:
   
   vector<Node> leaves () {
     vector<Node> leaf;
-    if (this->get_child()) {
-      vector<Node> result = this->get_child()->leaves();
+    if (get_child()) {
+      vector<Node> result = get_child()->leaves();
       leaf.insert (leaf.end(), result.begin(), result.end());
     } else {
-      leaf.push_back(this->get_head());
+      leaf.push_back(get_head());
     }
     
-    if (this->get_next()) {
-      Tree *conductor = this->get_next();
+    if (get_next()) {
+      Tree *conductor = get_next();
       vector<Node> result = conductor->leaves();
       leaf.insert (leaf.end(), result.begin(), result.end());
       while (conductor->get_next()) {
