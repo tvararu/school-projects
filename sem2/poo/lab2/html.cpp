@@ -29,6 +29,7 @@ private:
   Tag set_name (const string &name) { this->name = name; return *this; }
   
 public:
+  Tag () : name("div"), plain(0) {}
   Tag (const string &name, bool plain = 0) : name(name), plain(plain) {}
   
   Tag& attr (const string &name, string value = "") {

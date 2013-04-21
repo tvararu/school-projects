@@ -1,14 +1,15 @@
 #include <queue>
+#include <algorithm>
 using namespace std;
 
-// aici ar fi mers de minune un template
 class Node {
 private:
-  Tag data;
+  Tag data; // aici ar fi mers de minune un template
   
   Node& set_data (const Tag &data) { this->data = data; return *this; }
   
 public:
+  Node () {}
   Node (const Tag &val) : data(val) {}
   ~Node () {}
   
@@ -60,6 +61,7 @@ private:
   }
   
 public:
+  Tree () : child(0), next(0), parent(0) {}
   Tree (const Node &val) : head(val), child(0), next(0), parent(0) {}
   ~Tree () {}
   
@@ -107,9 +109,37 @@ public:
   }
   
   // nu l-am facut sa citeasca si atribute pentru ca m-as fi complicat destul de mult
-  // friend istream& operator>> (istream &in, Tree &x) {
-  //   
-  // }
+  friend istream& operator>> (istream &in, Tree &x) {
+    string input; getline (in, input);
+    input.erase(
+      ::remove_if(
+        input.begin(),
+        input.end(), 
+        ::isspace
+      ),
+      input.end()
+    );
+    
+    string tagName(input.begin() + 1, input.end() - 1);
+    x.set_head(Tag(tagName));
+    cout << input << ": " << tagName << '\n';
+    
+    if (tagName[0] != '/') {
+      cout << "opening tag\n";
+      Tree deeper;
+      in >> deeper;
+      if (deeper.get_head().get_data().get_name() != '/' + tagName) {
+        cout << deeper.get_head().get_data().get_name() << " different from " << tagName << endl;
+        // x += deeper;
+      } else {
+        cout << "finished:\n" << x;
+      }
+    } else { 
+      cout << "closing tag\n";
+    }
+    
+    return in;
+  }
   
   string bfs () {
     string result = "";
@@ -178,5 +208,28 @@ public:
     }
     
     return depth;
+  }
+  
+  vector<Node> leaves () {
+    vector<Node> leaf;
+    if (this->get_child()) {
+      vector<Node> result = this->get_child()->leaves();
+      leaf.insert (leaf.end(), result.begin(), result.end());
+    } else {
+      leaf.push_back(this->get_head());
+    }
+    
+    if (this->get_next()) {
+      Tree *conductor = this->get_next();
+      vector<Node> result = conductor->leaves();
+      leaf.insert (leaf.end(), result.begin(), result.end());
+      while (conductor->get_next()) {
+        conductor = conductor->get_next();
+        vector<Node> result = conductor->leaves();
+        leaf.insert (leaf.end(), result.begin(), result.end());
+      }
+    }
+    
+    return leaf;
   }
 };

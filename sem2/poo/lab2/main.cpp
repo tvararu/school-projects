@@ -6,28 +6,48 @@
 #include <fstream>
 using namespace std;
 
-// mi-am zis ca ar fi o aplicatie practica draguta un parser basic de html asa ca am scris si niste clase mici ajutatoare pentru asta.
+// mi-am zis ca ar fi o aplicatie practica draguta un parser basic de html asa ca am scris si niste clase mici ajutatoare pentru asta
 #include "html.cpp"
 #include "tree.cpp"
 
 int main (int argc, char const *argv[])
 {
-  // exemple conform cerintei
   Tree ex0(Tag("0")), ex1(Tag("1")), ex2(Tag("2")), ex3(Tag("3")), ex4(Tag("4")), ex5(Tag("5")), ex6(Tag("6"));
+
+  // operator+ si operator+=
+  // ex0 = ex0 + ex1;
+  // ex0 += ex4;
+  // ex1 += ex2;
+  // ex1 += ex3 += ex5 += ex6;
   
-  ex0 += ex1;
-  ex0 += ex4;
-  ex1 += ex2;
-  ex1 += ex3 += ex5 += ex6;
-  
+  // parcurgerile in latime si adancime
   cout << "Breadth first search: " << ex0.bfs() << endl;
   cout << "Depth first search: " << ex0.dfs() << endl;
   
+  // operator<<
   cout << ex0;
   
-  cout << "Height: " << ex0.get_height() << endl;
+  // inaltimea unui (sub)arbore
+  cout << "Height of ex0: " << ex0.get_height() << endl;
+  cout << "Height of ex3: " << ex3.get_height() << endl;
   
-  // iar acum, o pagina web, in afara cerintei problemei
+  // vectorul cu frunzele sub forma de nod, se poate adapta usor sa fie aduse ca subarbori fara copii
+  cout << ex0.leaves().size() << endl;
+  
+  // outputez ex0 intr-un fisier ca sa il pot citi
+  ofstream out ("arbore.out");
+  out << ex0;
+  out.close ();
+  
+  // operator>>
+  Tree fromFile;
+  ifstream in ("arbore.out");
+  in >> fromFile;
+  in.close ();
+  
+  cout << "Read from file:\n" << fromFile;
+  
+  // iar acum, o pagina web
   
   Tree dom(Tag("html"));
   
@@ -62,7 +82,7 @@ int main (int argc, char const *argv[])
   
   Tree pre(Tag("pre"));
   string quine;
-  ifstream in ("main.cpp");
+  in.open ("main.cpp");
   while (in) {
     string line; getline (in, line);
     quine += line + "\n";
@@ -76,10 +96,12 @@ int main (int argc, char const *argv[])
   
   dom += body;
   
-  ofstream out ("index.html");
+  out.open ("index.html");
   out << "<!DOCTYPE html>\n";
   out << dom;
   out.close ();
+  
+  // deschideti index.html cu un browser :)
   
   return 0;
 }
