@@ -60,7 +60,7 @@ int execute (set<int> &state, set<int> &alphabet, vector< vector<int> > foo, con
       break;
     }
     
-    if ((st < 0 || st >= foo.size()) || ((unsigned)word[i] >= foo[0].size())) {
+    if ((st >= foo.size()) || ((unsigned)word[i] >= foo[0].size())) {
       invalid = true;
       cout << "Transition a[" << st << "]["<< word[i] << "] does not exist, breaking.\n";
       break;
