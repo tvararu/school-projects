@@ -1,4 +1,4 @@
-// corect
+// corect, afiseaza 12
 
 #include <iostream>
 using namespace std;
