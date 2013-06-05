@@ -3,7 +3,7 @@
 ##1 - corect
 Afiseaza `12`.
 
-##2 - *Teorie:* Constructorul de copiere in procesul de mostenire
+##2 - *Teorie:* constructorul de copiere in procesul de mostenire
 Daca clasa derivata **nu are** definit un constructor de copiere atunci compilatorul genereaza unul automat care va realiza copierea datelor membre mostenite apeland la constructorii de copiere ai claselor de baza (definiti de utilizator sau generati de compilator), iar datele specifice clasei derivate se vor copia bit cu bit.
 
 Daca clasa derivata **are** definit un constructor de copiere atunci acesta va realiza copierea tuturor datelor membre (mostenite sau proprii), apeland eventual la constructorii claselor de baza.
@@ -32,7 +32,7 @@ Supraincarcarea operatorului `operator=` trebuie sa fie declarata ca membru al u
 ##10 - incorect
 `*p1 = p1->minus()` o sa schimbe tipul de obiect retinut in pointerul `p1` la un obiect de tip `A`, pentru ca functia `minus()` intoarce `A`. Prin urmare, metoda `afisare()` va fi cautata in cadrul obiectului `A`, care nu are aceasta metoda.
 
-##11 - *Teorie:* Functii virtuale
+##11 - *Teorie:* cunctii virtuale
 Functiile virtuale sunt descrieri generice pentru interfata comuna claselor de baza si a celor derivate.
 
 Un exemplu ar fi un vector de pointeri la o clasa de baza, pe care il populam cu obiecte derivate. Pentru fiecare element din vector, putem apela o metoda care daca este de tip virtual, va fi aleasa la runtime in functie de tipul obiectului ce o apeleaza. (vezi `11_exemplu.cpp`)
