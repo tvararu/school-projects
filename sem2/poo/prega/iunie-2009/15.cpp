@@ -1,5 +1,3 @@
-// corect; afiseaza -61
-
 #include <iostream>
 using namespace std;
 
@@ -32,7 +30,9 @@ public:
 int main (int argc, char const *argv[])
 {
   E e1(-21,2), e2=e1;
-  cout << e2.y;
+  cout << e2.y; // corect; afiseaza -61
+  
+  // nobody cares
   // char c;
   // cin >> c;
   

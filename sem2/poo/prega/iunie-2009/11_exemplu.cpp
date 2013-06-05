@@ -1,5 +1,3 @@
-// exemplu de programel cu functii virtuale. a se observa outputul cu si fara keywordul "virtual" la functia de render
-
 #include <iostream>
 using namespace std;
 
@@ -25,6 +23,7 @@ int main (int argc, char const *argv[])
   formv[1] = new Square();
   formv[2] = new Form();
   
+  // a se observa outputul cu si fara keywordul "virtual" la functia de render
   cout << formv[0]->render() << endl;
   cout << formv[1]->render() << endl;
   cout << formv[2]->render() << endl;

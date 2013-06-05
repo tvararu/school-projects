@@ -1,10 +1,7 @@
-// incorect; constructorul de copiere este de forma A::A(A&) in timp ce linia c = a + b; necesita o functie de tip A::A(A).
-
 #include <iostream>
 using namespace std;
 
-class A
-{
+class A {
 public:
   int *v, dim;
   A (int i) {
@@ -33,7 +30,8 @@ public:
 A A::operator+ (A a1) {
   A a2(0);
   a2.dim = dim;
-  v = new int[a2.dim]; // ?, v este din this si nu din a2
+  v = new int[a2.dim];
+  // weird, v este din this si nu din a2
   for (int j = 0; j < a2.dim; j++) {
     a2.v[j] = v[j] + a1.v[j];
   }
@@ -42,7 +40,7 @@ A A::operator+ (A a1) {
 
 ostream& operator<< (ostream& o, A a) {
   for (int i = 0; i < a.size(); i++) cout << a[i] << " ";
-  // ?, cout in loc de o
+  // weird, cout in loc de o
   return o;
 }
 

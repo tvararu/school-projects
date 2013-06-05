@@ -9,8 +9,8 @@ class Costel {
 
 int main (int argc, char const *argv[])
 {
-  Ionel ionut;
-  cout << typeid(ionut).name() << endl;
+  Ionel ionica;
+  cout << typeid(ionica).name() << endl;
   
   Costel costica;
   cout << typeid(costica).name() << endl;
