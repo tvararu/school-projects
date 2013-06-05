@@ -11,21 +11,21 @@ public:
   Base() { x = 1; y = 2; z = 3; }
 };
 
-class Inh : public Base {
+class Derived : public Base {
 public:
   int get_y() { return y; }
 };
 
-class Inh2 : public Inh {
+class Derived2 : public Derived {
 public:
   int get_y() { return y; }
 };
 
 int main (int argc, char const *argv[])
 {
-  Inh a;
+  Derived a;
   cout << a.get_y() << endl;
-  Inh2 b;
+  Derived2 b;
   cout << b.get_y() << endl;
   
   return 0;
