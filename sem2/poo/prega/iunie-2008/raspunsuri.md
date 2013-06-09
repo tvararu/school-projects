@@ -4,9 +4,9 @@
 In cadrul executiei lui `operator<<` se va incerca folosirea lui `operator[]` in cadrul instructiunii `o << a[i]`. Deoarece acesta nu este definit de tip `const`, incercarea de a-l apela pentru un obiect de tip `const D` va esua.
 
 ##2 - *Teorie:* trei metode de proiectare prin care elementele unei clase se pot gasi in dublu exemplar in definitia altei clase
+* mostenire multipla
 * mostenire virtuala multipla
 * compunere; initializarea sub forma de membri a unor alte clase
-* ???
 
 ##3 - incorect
 `int x` e de tip private si nu merge apelat in cadrul lui `class D`.
