@@ -19,6 +19,7 @@ int main (int argc, char const *argv[])
 {
   D x;
   x.nothing();
+  cout << "hi\n";
   
   return 0;
 }

@@ -6,7 +6,7 @@ int main (int argc, char const *argv[])
   try {
     // throw 1;
     // throw (float)1.2;
-    throw 1.2;
+    // throw 1.2;
     cout << "Nu se afiseaza." << endl;
   }
   

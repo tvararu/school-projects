@@ -53,7 +53,7 @@ Afiseaza `-61`.
 Afiseaza `Da-mi un numar par: -35 \n Numarul -35 nu e bun!`.
 
 ##17 - *Teorie:* diferenta intre pointeri si referinte
-Diferenta dintre un pointer si o referinta este ca un pointer contine adresa spre o zona de memorie in timp ce o referinta este un alias pentru o variabila existenta. In plus, o referinta nu poate fi modificata pentru a se referi la alte zone de memorie.
+Diferenta dintre un pointer si o referinta este ca un pointer contine adresa spre o zona de memorie in timp ce o referinta este un alias pentru o variabila existenta. In consecinta, o referinta nu poate fi modificata pentru a se referi la alte zone de memorie.
 
 ##18 - incorect
 Programul va incerca in cadrul metodei `T f(T x, T y)` sa efectueze adunarea a doua variabile de tip `int*`, operatie care nu este definita.
